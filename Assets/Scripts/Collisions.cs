@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class Collisions : MonoBehaviour
 {
-    public Ball currentBall;
+    public Ball ball;
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(" hit " + this.name);
+        if (collision.gameObject.name == "Ball")
+            if (this.name == "Mid")
+                Debug.Log("HIT");
+
+
     }
 }

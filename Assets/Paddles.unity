@@ -245,6 +245,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4dcd53ad7d944abb43aa47bbb590a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftPaddle: {fileID: 42393516}
+  rightPaddle: {fileID: 1286344092}
 --- !u!1 &592684100
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4dcd53ad7d944abb43aa47bbb590a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftPaddle: {fileID: 42393516}
+  rightPaddle: {fileID: 1286344092}
 --- !u!1 &1524350209
 GameObject:
   m_ObjectHideFlags: 0

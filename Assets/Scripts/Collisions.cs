@@ -27,9 +27,15 @@ public class Collisions : MonoBehaviour
                 ball.yVelocity = -1;
             }
             // top and bottom boundries
-            if (this.name == "Boundry")
+            if (this.name == "Wall")
             {
                 ball.yVelocity *= -1;
+            }
+            //goals
+            if (this.name == "Goal")
+            {
+                ball.speed = 0;
+                ball.UpdateScore();
             }
 
 

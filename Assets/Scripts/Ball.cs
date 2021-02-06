@@ -8,6 +8,8 @@ public class Ball : MonoBehaviour
     public int xVelocity = 1;
     public int yVelocity = 1;
     public int speed = 10;
+
+    //move ball
     void Update()
     {
         // x axis

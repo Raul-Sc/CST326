@@ -15,7 +15,10 @@ public class Ball : MonoBehaviour
     public int xVelocity = 1;
     public int yVelocity = 1;
     public int speed = 10;
-
+    private void Start()
+    {
+        SpawnBall();
+    }
     void SpawnBall()//will spawn to person who got scored on
     {
         //pick random cordinate on Y axis

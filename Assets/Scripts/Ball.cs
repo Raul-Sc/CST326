@@ -10,10 +10,7 @@ public class Ball : MonoBehaviour
     public int xVelocity = 1;
     public int yVelocity = 1;
     public int speed = 10;
-    private void Start()
-    {
-        //SpawnBall();
-    }
+  
     public void SpawnBall()//will spawn to person who got scored on
     {
         //pick random cordinate on Y axis
@@ -36,6 +33,7 @@ public class Ball : MonoBehaviour
         transform.Translate(Vector3.right * Time.deltaTime * xVelocity * speed);
         //y axis
         transform.Translate(Vector3.up * Time.deltaTime * yVelocity * speed);
+     
     }
 
 }

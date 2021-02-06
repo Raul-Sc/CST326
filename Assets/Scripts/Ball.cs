@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ball : MonoBehaviour
 {
+
     //keep score
     int leftPlayer = 0;
     int rightPlayer = 0;
+    [SerializeField] Text leftScore;
+    [SerializeField] Text rightScore;
     // Update is called once per frame
     public int xVelocity = 1;
     public int yVelocity = 1;
@@ -51,7 +55,8 @@ public class Ball : MonoBehaviour
         }
         Debug.Log("GOOALL!!! by " + scored + '\n'
             + "LEFT: " + leftPlayer + " RIGHT: " + rightPlayer);
-            
+        leftScore.text = leftPlayer.ToString();
+        rightScore.text = rightPlayer.ToString();
         if (GameOver())
         {
             Debug.Log(scored + " Player WON!!!");

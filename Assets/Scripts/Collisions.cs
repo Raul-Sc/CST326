@@ -9,6 +9,7 @@ public class Collisions : MonoBehaviour
     {
         if (collision.gameObject.name == "Ball")
         {
+            ball.speed++;
             //padle(s) hit locations
             if (this.name == "Top")
             {

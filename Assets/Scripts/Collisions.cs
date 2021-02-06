@@ -4,43 +4,59 @@ using UnityEngine;
 
 public class Collisions : MonoBehaviour
 {
-    public Ball ball;
+    [SerializeField] Ball ball;
+    [SerializeField] Game game;
     private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "Ball")
+    { 
+        ball.speed += 2;
+        //padle(s) hit locations
+        if (collision.gameObject.name == "LeftTop")
         {
-            ball.speed += 2;
-            //padle(s) hit locations
-            if (this.name == "Top")
-            {
-                ball.xVelocity *= -1;
-                ball.yVelocity = 1;
-            }
-
-            if (this.name == "Mid")
-            {
-                ball.xVelocity *= -1;
-                ball.yVelocity = 0;
-            }
-            if (this.name == "Bottom")
-            {
-                ball.xVelocity *= -1;
-                ball.yVelocity = -1;
-            }
-            // top and bottom boundries
-            if (this.name == "Wall")
-            {
-                ball.yVelocity *= -1;
-            }
-            //goals
-            if (this.name == "Goal")
-            {
-                ball.speed = 0;
-                ball.UpdateScore();
-            }
-
-
+            ball.xVelocity = 1;
+            ball.yVelocity = 1;
         }
 
+        else if (collision.gameObject.name == "LeftMid")
+        {
+            ball.xVelocity = 1;
+            ball.yVelocity = 0;
+        }
+
+        else if (collision.gameObject.name == "LeftBottom")
+        {
+            ball.xVelocity =  1;
+            ball.yVelocity = -1;
+        }
+        if (collision.gameObject.name == "RightTop")
+        {
+            ball.xVelocity = -1;
+            ball.yVelocity = 1;
+        }
+
+        else if (collision.gameObject.name == "RightMid")
+        {
+            ball.xVelocity = -1;
+            ball.yVelocity = 0;
+        }
+
+        else if (collision.gameObject.name == "RightBottom")
+        {
+            ball.xVelocity = -1;
+            ball.yVelocity = -1;
+        }
+        // top and bottom boundries
+        else if (collision.gameObject.name == "TopWall" || collision.gameObject.name == "BottomWall")
+        {
+            ball.yVelocity *= -1;
+        }
+        //goals
+        else if (collision.gameObject.name == "LeftGoal" || collision.gameObject.name == "RightGoal")
+        {
+            ball.speed = 0;
+            game.UpdateScore();
+        }
+
+
     }
+
 }

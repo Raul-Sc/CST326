@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    //keep score
+    int leftPlayer = 0;
+    int rightPlayer = 0;
     // Update is called once per frame
     public int xVelocity = 1;
     public int yVelocity = 1;
@@ -34,10 +37,33 @@ public class Ball : MonoBehaviour
     }
     public void UpdateScore()
     {
+        string scored = " ";
         if (xVelocity == 1)
-            Debug.Log("left scored");
+        {
+            leftPlayer++;
+            scored = "Left";
+        }
+
         else
-            Debug.Log("Right Scored");
-        SpawnBall();
+        {
+            rightPlayer++;
+            scored = "Right";
+        }
+        Debug.Log("GOOALL!!! by " + scored + '\n'
+            + "LEFT: " + leftPlayer + " RIGHT: " + rightPlayer);
+            
+        if (GameOver())
+        {
+            Debug.Log(scored + " Player WON!!!");
+            leftPlayer = 0;
+            rightPlayer = 0;
+        }
+        Invoke(nameof(SpawnBall), 2.0f);
+    }
+    bool GameOver()
+    {
+        if (leftPlayer == 11 || rightPlayer == 11)
+            return true;
+        return false;
     }
 }

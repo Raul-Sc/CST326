@@ -64,9 +64,14 @@ public class Game : MonoBehaviour
             ball.SpawnBall();
         }
         //top and bottom
-        if(ball.transform.position.y > 31 || ball.transform.position.y < -31)
+        if (ball.transform.position.y > 31 || ball.transform.position.y < -31)
         {
             ball.SpawnBall();
         }
+        //escape app
+         if (Input.GetKey("escape"))
+         {
+                Application.Quit();
+         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Paddle : MonoBehaviour
 { 
-    private float speed = 20;
+    private float speed = 50;
   
     public void Move(Vector3 movement)
     {

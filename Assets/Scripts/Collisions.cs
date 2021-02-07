@@ -6,11 +6,11 @@ public class Collisions : MonoBehaviour
 {
     [SerializeField] Ball ball;
     [SerializeField] Game game;
-    [SerializeField] Transform particles;
+    [SerializeField] ParticleSystem particles;
   
     private void OnCollisionEnter(Collision collision)
     {
-
+        
         particles.GetComponent<ParticleSystem>().Play();
 
         ball.speed += 2;
@@ -63,14 +63,12 @@ public class Collisions : MonoBehaviour
         else if (collision.gameObject.name == "LeftGoal" || collision.gameObject.name == "RightGoal")
         {
             //turn off particles
-            particles.GetComponent<ParticleSystem>().Pause();
-            particles.GetComponent<ParticleSystem>().Clear();
+             particles.GetComponent<ParticleSystem>().Pause();
+             particles.GetComponent<ParticleSystem>().Clear();
 
             ball.speed = 0;
             game.UpdateScore();
         }
-
-
     }
 
 }

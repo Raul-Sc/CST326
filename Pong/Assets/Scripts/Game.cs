@@ -12,9 +12,12 @@ public class Game : MonoBehaviour
     [SerializeField] Text rightScore;
     int leftPlayer = 0;
     int rightPlayer = 0;
-
-    void StartGame()
+    private void Start()
     {
+        StartGame();
+    }
+    void StartGame()
+    { 
         leftPlayer = 0;
         rightPlayer = 0;
         leftScore.text = leftPlayer.ToString();
@@ -35,6 +38,7 @@ public class Game : MonoBehaviour
         {
             rightPlayer++;
             scored = "Right";
+
         }
         Debug.Log("GOOALL!!! by " + scored + '\n'
             + "LEFT: " + leftPlayer + " RIGHT: " + rightPlayer);
@@ -46,7 +50,9 @@ public class Game : MonoBehaviour
             Invoke(nameof(StartGame), 2);
         }
         else
+        {
             ball.SpawnBall();
+        }
     }
     bool GameOver()
     {

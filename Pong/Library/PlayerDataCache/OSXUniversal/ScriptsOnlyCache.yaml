@@ -51,25 +51,25 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1610}
+      Script: {instanceID: 1612}
     - Class: 114
-      Script: {instanceID: 1748}
+      Script: {instanceID: 1750}
     - Class: 114
-      Script: {instanceID: 2202}
+      Script: {instanceID: 2204}
     - Class: 114
-      Script: {instanceID: 2614}
+      Script: {instanceID: 2616}
     - Class: 114
-      Script: {instanceID: 2754}
+      Script: {instanceID: 2756}
     - Class: 114
-      Script: {instanceID: 2794}
+      Script: {instanceID: 2796}
     - Class: 114
-      Script: {instanceID: 2802}
+      Script: {instanceID: 2804}
     - Class: 114
-      Script: {instanceID: 2808}
+      Script: {instanceID: 2810}
     - Class: 114
-      Script: {instanceID: 3020}
+      Script: {instanceID: 3022}
     - Class: 114
-      Script: {instanceID: 3336}
+      Script: {instanceID: 3338}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -369,7 +369,7 @@ ScriptsOnlyBuild:
     className: TMP_Settings
   - hash:
       serializedVersion: 2
-      Hash: 7f5c6dbfc1cef53bad97f4283056e2a7
+      Hash: 816f6b5fc0ab4eae0889df5c97eead00
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Collisions
@@ -550,4 +550,4 @@ ScriptsOnlyBuild:
   platform: 2
   scenePathNames:
   - Assets/Paddles.unity
-  playerPath: /Users/home/Desktop/Spring-21/CST-326/GitHub/CST326/PONG.app
+  playerPath: /Users/home/Desktop/Spring-21/CST-326/GitHub/CST326/Pong/PONG.app

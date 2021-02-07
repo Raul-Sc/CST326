@@ -12,11 +12,11 @@ public class Paddle : MonoBehaviour
         movement *= speed * Time.deltaTime;
         //limit paddle - y position
         if (movement.y < 0)
-            if (transform.position.y > -25f)
+            if (transform.position.y > -27f)
                 transform.Translate(0f, movement.y, 0f);
         //limit paddle + y position
         if(movement.y > 0)
-            if (transform.position.y < 25f)
+            if (transform.position.y < 27f)
                 transform.Translate(0f, movement.y, 0f);
 
 

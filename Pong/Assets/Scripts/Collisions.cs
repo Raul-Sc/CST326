@@ -10,7 +10,13 @@ public class Collisions : MonoBehaviour
     [SerializeField] AudioClip paddleSFX;
     [SerializeField] AudioClip wallSFX;
     [SerializeField] AudioClip scoreSFX;
+    [SerializeField] GameObject RightScoredLight;
+    [SerializeField] GameObject LeftScoredLight;
 
+    private void Start()
+    {
+        TurnOffLights();
+    }
 
     private void OnCollisionEnter(Collision collision)
     { 
@@ -69,13 +75,23 @@ public class Collisions : MonoBehaviour
         else if (collision.gameObject.name == "LeftGoal" || collision.gameObject.name == "RightGoal")
         {
             //turn off particles
-             particles.GetComponent<ParticleSystem>().Pause();
-             particles.GetComponent<ParticleSystem>().Clear();
-
+            particles.GetComponent<ParticleSystem>().Pause();
+            particles.GetComponent<ParticleSystem>().Clear();
             ball.speed = 0;
+            if (collision.gameObject.name == "LeftGoal")
+                RightScoredLight.SetActive(true);
+            else
+                LeftScoredLight.SetActive(true);
             game.UpdateScore();
             AudioSource.PlayClipAtPoint(scoreSFX, Camera.main.transform.position, .1f);
+            Invoke(nameof(TurnOffLights), 0.2f);
+     
         }
+    }
+    void TurnOffLights()
+    {
+        RightScoredLight.SetActive(false);
+        LeftScoredLight.SetActive(false);
     }
 
 }

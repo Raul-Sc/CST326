@@ -7,10 +7,13 @@ public class Collisions : MonoBehaviour
     [SerializeField] Ball ball;
     [SerializeField] Game game;
     [SerializeField] ParticleSystem particles;
-  
+    [SerializeField] AudioClip paddleSFX;
+    [SerializeField] AudioClip wallSFX;
+    [SerializeField] AudioClip scoreSFX;
+
+
     private void OnCollisionEnter(Collision collision)
-    {
-        
+    { 
         particles.GetComponent<ParticleSystem>().Play();
 
         ball.speed += 2;
@@ -19,45 +22,48 @@ public class Collisions : MonoBehaviour
         {
             ball.xVelocity = 1;
             ball.yVelocity = 1;
+            AudioSource.PlayClipAtPoint(paddleSFX, Camera.main.transform.position, .1f);
         }
 
         else if (collision.gameObject.name == "LeftMid")
         {
             ball.xVelocity = 1;
             ball.yVelocity = 0;
-            
+            AudioSource.PlayClipAtPoint(paddleSFX, Camera.main.transform.position, .1f);
         }
 
         else if (collision.gameObject.name == "LeftBottom")
         {
             ball.xVelocity =  1;
             ball.yVelocity = -1;
-            
+            AudioSource.PlayClipAtPoint(paddleSFX, Camera.main.transform.position, .1f);
         }
         if (collision.gameObject.name == "RightTop")
         {
             ball.xVelocity = -1;
             ball.yVelocity = 1;
-            
+            AudioSource.PlayClipAtPoint(paddleSFX, Camera.main.transform.position, .1f);
         }
 
         else if (collision.gameObject.name == "RightMid")
         {
             ball.xVelocity = -1;
             ball.yVelocity = 0;
-           
+            AudioSource.PlayClipAtPoint(paddleSFX, Camera.main.transform.position, .1f);
         }
 
         else if (collision.gameObject.name == "RightBottom")
         {
             ball.xVelocity = -1;
             ball.yVelocity = -1;
-        
+            AudioSource.PlayClipAtPoint(paddleSFX, Camera.main.transform.position, .1f);
+
         }
-        // top and bottom boundries
+        // top and bottom walls
         else if (collision.gameObject.name == "TopWall" || collision.gameObject.name == "BottomWall")
         {
             ball.yVelocity *= -1;
+            AudioSource.PlayClipAtPoint(wallSFX, Camera.main.transform.position, .1f);
         }
         //goals
         else if (collision.gameObject.name == "LeftGoal" || collision.gameObject.name == "RightGoal")
@@ -68,6 +74,7 @@ public class Collisions : MonoBehaviour
 
             ball.speed = 0;
             game.UpdateScore();
+            AudioSource.PlayClipAtPoint(scoreSFX, Camera.main.transform.position, .1f);
         }
     }
 

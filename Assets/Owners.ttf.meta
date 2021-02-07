@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 38b2b1aac6f034e76989c8d097db9694
+guid: d6de4263bafbd4422ba9ccbab6483401
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Bad Mofo
+  - Owners
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

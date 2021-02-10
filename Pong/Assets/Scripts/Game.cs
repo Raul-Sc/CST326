@@ -42,6 +42,7 @@ public class Game : MonoBehaviour
         {
             leftPlayer++;
             scored = "Left";
+
             leftStreak++;
             rightStreak = 0;
             resetScoreColor(rightScore);
@@ -53,8 +54,9 @@ public class Game : MonoBehaviour
         {
             rightPlayer++;
             scored = "Right";
-            rightStreak++;
 
+            rightStreak++;
+            leftStreak = 0;
             resetScoreColor(leftScore);
             if (rightStreak == 3)
                 rightScore.color = Color.red;
@@ -67,8 +69,6 @@ public class Game : MonoBehaviour
         leftScore.text = leftPlayer.ToString();
         rightScore.text = rightPlayer.ToString();
 
-        Invoke(nameof(resetScoreColor),.25f);
-        
         if (GameOver())
         {
             Debug.Log(scored + " Player WON!!!");

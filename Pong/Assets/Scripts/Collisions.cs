@@ -23,7 +23,8 @@ public class Collisions : MonoBehaviour
     { 
         particles.GetComponent<ParticleSystem>().Play();
 
-        ball.speed += 2;
+        ball.speed += 3;
+        Debug.Log(ball.speed);
         //padle(s) hit locations
         if (collision.gameObject.name == "LeftTop")
         {

@@ -10,14 +10,24 @@ public class Game : MonoBehaviour
     //keep score
     [SerializeField] Text leftScore;
     [SerializeField] Text rightScore;
+
+
     int leftPlayer = 0;
     int rightPlayer = 0;
+
+    int rightStreak = 0;
+    int leftStreak = 0;
+
     private void Start()
     {
         StartGame();
     }
     void StartGame()
-    { 
+    {
+        resetScoreColor(leftScore);
+        resetScoreColor(rightScore);
+        rightStreak = 0;
+        leftStreak = 0;
         leftPlayer = 0;
         rightPlayer = 0;
         leftScore.text = leftPlayer.ToString();
@@ -32,18 +42,33 @@ public class Game : MonoBehaviour
         {
             leftPlayer++;
             scored = "Left";
+            leftStreak++;
+            rightStreak = 0;
+            resetScoreColor(rightScore);
+            if (leftStreak == 3)
+                leftScore.color = Color.red;
         }
 
         else
         {
             rightPlayer++;
             scored = "Right";
+            rightStreak++;
+
+            resetScoreColor(leftScore);
+            if (rightStreak == 3)
+                rightScore.color = Color.red;
+
 
         }
         Debug.Log("GOOALL!!! by " + scored + '\n'
             + "LEFT: " + leftPlayer + " RIGHT: " + rightPlayer);
+     
         leftScore.text = leftPlayer.ToString();
         rightScore.text = rightPlayer.ToString();
+
+        Invoke(nameof(resetScoreColor),.25f);
+        
         if (GameOver())
         {
             Debug.Log(scored + " Player WON!!!");
@@ -79,5 +104,9 @@ public class Game : MonoBehaviour
          {
                 Application.Quit();
          }
+    }
+    void resetScoreColor(Text score)
+    {
+        score.color = Color.white;
     }
 }

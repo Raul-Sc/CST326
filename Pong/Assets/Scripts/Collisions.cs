@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Collisions : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Collisions : MonoBehaviour
         {
             ball.xVelocity = 1;
             ball.yVelocity = 1;
+
             AudioSource.PlayClipAtPoint(paddleSFX, Camera.main.transform.position, .1f);
         }
 
@@ -35,6 +37,7 @@ public class Collisions : MonoBehaviour
         {
             ball.xVelocity = 1;
             ball.yVelocity = 0;
+
             AudioSource.PlayClipAtPoint(paddleSFX, Camera.main.transform.position, .1f);
         }
 
@@ -42,12 +45,14 @@ public class Collisions : MonoBehaviour
         {
             ball.xVelocity =  1;
             ball.yVelocity = -1;
+
             AudioSource.PlayClipAtPoint(paddleSFX, Camera.main.transform.position, .1f);
         }
         if (collision.gameObject.name == "RightTop")
         {
             ball.xVelocity = -1;
             ball.yVelocity = 1;
+
             AudioSource.PlayClipAtPoint(paddleSFX, Camera.main.transform.position, .1f);
         }
 
@@ -55,6 +60,7 @@ public class Collisions : MonoBehaviour
         {
             ball.xVelocity = -1;
             ball.yVelocity = 0;
+
             AudioSource.PlayClipAtPoint(paddleSFX, Camera.main.transform.position, .1f);
         }
 
@@ -62,6 +68,7 @@ public class Collisions : MonoBehaviour
         {
             ball.xVelocity = -1;
             ball.yVelocity = -1;
+
             AudioSource.PlayClipAtPoint(paddleSFX, Camera.main.transform.position, .1f);
 
         }
@@ -69,6 +76,7 @@ public class Collisions : MonoBehaviour
         else if (collision.gameObject.name == "TopWall" || collision.gameObject.name == "BottomWall")
         {
             ball.yVelocity *= -1;
+
             AudioSource.PlayClipAtPoint(wallSFX, Camera.main.transform.position, .1f);
         }
         //goals
@@ -79,12 +87,18 @@ public class Collisions : MonoBehaviour
             particles.GetComponent<ParticleSystem>().Clear();
             ball.speed = 0;
             if (collision.gameObject.name == "LeftGoal")
+            {
                 RightScoredLight.SetActive(true);
+            }
             else
+            {
                 LeftScoredLight.SetActive(true);
+
+            }
             game.UpdateScore();
+
             AudioSource.PlayClipAtPoint(scoreSFX, Camera.main.transform.position, .1f);
-            Invoke(nameof(TurnOffLights), 0.2f);
+            Invoke(nameof(TurnOffLights), 0.25f);
      
         }
     }

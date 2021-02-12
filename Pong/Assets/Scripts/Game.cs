@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Game : MonoBehaviour
 {
     [SerializeField] Ball ball;
+    [SerializeField] GameObject PowerUp;
 
     //keep score
     [SerializeField] Text leftScore;
@@ -24,6 +25,7 @@ public class Game : MonoBehaviour
     }
     void StartGame()
     {
+        //reset everything
         resetScoreColor(leftScore);
         resetScoreColor(rightScore);
         rightStreak = 0;
@@ -33,11 +35,13 @@ public class Game : MonoBehaviour
         leftScore.text = leftPlayer.ToString();
         rightScore.text = rightPlayer.ToString();
         ball.SpawnBall();
+        PowerUp.SetActive(false);
     }
 
     public void UpdateScore()
     {
         string scored = " ";
+        //left player scored
         if (ball.xVelocity == 1)
         {
             leftPlayer++;
@@ -45,11 +49,13 @@ public class Game : MonoBehaviour
 
             leftStreak++;
             rightStreak = 0;
-            resetScoreColor(rightScore);
-            if (leftStreak == 3)
+            // unless match point
+            if(rightPlayer != 10 )
+                resetScoreColor(rightScore);
+            if (leftStreak == 3 || leftPlayer > 9)
                 leftScore.color = Color.red;
         }
-
+        // right player scored
         else
         {
             rightPlayer++;
@@ -57,8 +63,10 @@ public class Game : MonoBehaviour
 
             rightStreak++;
             leftStreak = 0;
-            resetScoreColor(leftScore);
-            if (rightStreak == 3)
+            //unless match point
+            if(leftPlayer != 10)
+                resetScoreColor(leftScore);
+            if (rightStreak == 3 || rightPlayer > 9)
                 rightScore.color = Color.red;
 
 

@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Collisions : MonoBehaviour
 {
     [SerializeField] Ball ball;
     [SerializeField] Game game;
+    [SerializeField] Paddle leftPaddle;
+    [SerializeField] Paddle rightPaddle;
+    [SerializeField] GameObject powerUp;
+    //fx 
     [SerializeField] ParticleSystem particles;
     [SerializeField] AudioClip paddleSFX;
     [SerializeField] AudioClip wallSFX;
@@ -18,13 +21,12 @@ public class Collisions : MonoBehaviour
     {
         TurnOffLights();
     }
-
+    // Handles Ball velocity, visuals and sound
     private void OnCollisionEnter(Collision collision)
     { 
         particles.GetComponent<ParticleSystem>().Play();
 
         ball.speed += 3;
-        Debug.Log(ball.speed);
         //padle(s) hit locations
         if (collision.gameObject.name == "LeftTop")
         {
@@ -103,10 +105,41 @@ public class Collisions : MonoBehaviour
      
         }
     }
+
+
+    // Power Ups
+    private void OnTriggerEnter(Collider other)
+    {   //valid if greater than initial speed
+        if (ball.speed > 20)
+        {
+            if (other.name == "DoublePowerUp")
+            {
+                if (ball.xVelocity == 1)
+                {
+                    leftPaddle.transform.localScale *= 2;
+                    Invoke(nameof(resetLeftPaddle), 10);
+                }
+                else
+                {
+                    rightPaddle.transform.localScale *= 2;
+                    Invoke(nameof(resetRightPaddle), 10);
+                }
+                powerUp.SetActive(false);
+            }
+        }
+    }
     void TurnOffLights()
     {
         RightScoredLight.SetActive(false);
         LeftScoredLight.SetActive(false);
+    }
+    private void resetLeftPaddle()
+    {
+        leftPaddle.transform.localScale /= 2;
+    }
+    private void resetRightPaddle()
+    {
+        leftPaddle.transform.localScale /= 2;
     }
 
 }

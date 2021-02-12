@@ -19,10 +19,7 @@ public class Ball : MonoBehaviour
         var temp = new Vector3(0, y, 0);
         this.transform.position = temp;
         // random y velocity 
-        if ((int)y % 2 == 0)
-        {
-            this.yVelocity *= -1;
-        }
+        this.yVelocity = ((int)(y % 3)) - 1;
         //start the ball
         this.speed = INITIAL_SPEED;
     }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Game : MonoBehaviour
 {
     [SerializeField] Ball ball;
-    [SerializeField] GameObject PowerUp;
+    [SerializeField] GameObject powerUpDouble;
 
     //keep score
     [SerializeField] Text leftScore;
@@ -18,6 +18,7 @@ public class Game : MonoBehaviour
 
     int rightStreak = 0;
     int leftStreak = 0;
+    int randomPower = 0;
 
     private void Start()
     {
@@ -26,8 +27,14 @@ public class Game : MonoBehaviour
     void StartGame()
     {
         //reset everything
-        resetScoreColor(leftScore);
-        resetScoreColor(rightScore);
+
+        //powerUpDouble
+        randomPower = Random.Range(3,9);//random digit 
+        powerUpDouble.SetActive(false);
+
+
+        ResetScoreColor(leftScore);
+        ResetScoreColor(rightScore);
         rightStreak = 0;
         leftStreak = 0;
         leftPlayer = 0;
@@ -35,11 +42,17 @@ public class Game : MonoBehaviour
         leftScore.text = leftPlayer.ToString();
         rightScore.text = rightPlayer.ToString();
         ball.SpawnBall();
-        PowerUp.SetActive(false);
     }
 
     public void UpdateScore()
     {
+        if ((leftPlayer + rightPlayer + 1) % randomPower == 0) 
+        {
+            var y = Random.Range(-25.0f, 25.0f);
+            var temp = new Vector3(0, y, 0);
+            powerUpDouble.transform.position = temp;
+            powerUpDouble.SetActive(true);
+        }
         string scored = " ";
         //left player scored
         if (ball.xVelocity == 1)
@@ -51,7 +64,7 @@ public class Game : MonoBehaviour
             rightStreak = 0;
             // unless match point
             if(rightPlayer != 10 )
-                resetScoreColor(rightScore);
+                ResetScoreColor(rightScore);
             if (leftStreak == 3 || leftPlayer > 9)
                 leftScore.color = Color.red;
         }
@@ -65,7 +78,7 @@ public class Game : MonoBehaviour
             leftStreak = 0;
             //unless match point
             if(leftPlayer != 10)
-                resetScoreColor(leftScore);
+                ResetScoreColor(leftScore);
             if (rightStreak == 3 || rightPlayer > 9)
                 rightScore.color = Color.red;
 
@@ -113,8 +126,9 @@ public class Game : MonoBehaviour
                 Application.Quit();
          }
     }
-    void resetScoreColor(Text score)
+    void ResetScoreColor(Text score)
     {
         score.color = Color.white;
     }
+  
 }

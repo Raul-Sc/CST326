@@ -15,7 +15,7 @@ public class Ball : MonoBehaviour
     public void SpawnBall()//will spawn to person who got scored on
     {
         //pick random cordinate on Y axis
-        var y = Random.Range(-25.0f, 25.0f);
+        var y = Random.Range(-20.0f, 20.0f);
         var temp = new Vector3(0, y, 0);
         this.transform.position = temp;
         // random y velocity 

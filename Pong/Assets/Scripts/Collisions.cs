@@ -8,12 +8,17 @@ public class Collisions : MonoBehaviour
     [SerializeField] Game game;
     [SerializeField] Paddle leftPaddle;
     [SerializeField] Paddle rightPaddle;
-    [SerializeField] GameObject powerUp;
+    [SerializeField] GameObject powerUpDouble;
+    [SerializeField] GameObject powerUpSpeed;
     //fx 
     [SerializeField] ParticleSystem particles;
+
     [SerializeField] AudioClip paddleSFX;
     [SerializeField] AudioClip wallSFX;
     [SerializeField] AudioClip scoreSFX;
+    [SerializeField] AudioClip doubleUp;
+    [SerializeField] AudioClip speedUp;
+
     [SerializeField] GameObject RightScoredLight;
     [SerializeField] GameObject LeftScoredLight;
 
@@ -112,19 +117,26 @@ public class Collisions : MonoBehaviour
     {   //valid if greater than initial speed
         if (ball.speed > 20)
         {
-            if (other.name == "DoublePowerUp")
+            if (other.name == "DoublepowerUpDouble")
             {
+                AudioSource.PlayClipAtPoint(doubleUp, Camera.main.transform.position, .1f);
                 if (ball.xVelocity == 1)
                 {
-                    leftPaddle.transform.localScale *= 2;
+                    leftPaddle.transform.localScale = new Vector3(1, 12, 1);
                     Invoke(nameof(resetLeftPaddle), 10);
                 }
-                else
+                if(ball.xVelocity == -1)
                 {
-                    rightPaddle.transform.localScale *= 2;
+                    rightPaddle.transform.localScale = new Vector3(1, 12, 1);
                     Invoke(nameof(resetRightPaddle), 10);
                 }
-                powerUp.SetActive(false);
+
+                powerUpDouble.SetActive(false);
+            }
+            if(other.name == "SpeedPowerUp")
+            {
+                AudioSource.PlayClipAtPoint(speedUp, Camera.main.transform.position, .1f);
+                ball.speed = 50; 
             }
         }
     }
@@ -135,11 +147,11 @@ public class Collisions : MonoBehaviour
     }
     private void resetLeftPaddle()
     {
-        leftPaddle.transform.localScale /= 2;
+        leftPaddle.transform.localScale = new Vector3(1, 6, 1);
     }
     private void resetRightPaddle()
     {
-        leftPaddle.transform.localScale /= 2;
+        rightPaddle.transform.localScale = new Vector3(1, 6, 1);
     }
 
 }

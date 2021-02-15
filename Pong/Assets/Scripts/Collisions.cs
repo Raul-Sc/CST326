@@ -31,7 +31,7 @@ public class Collisions : MonoBehaviour
     { 
         particles.GetComponent<ParticleSystem>().Play();
 
-        ball.speed += 3;
+        ball.speed += 2;
         //padle(s) hit locations
         if (collision.gameObject.name == "LeftTop")
         {
@@ -117,7 +117,7 @@ public class Collisions : MonoBehaviour
     {   //valid if greater than initial speed
         if (ball.speed > 20)
         {
-            if (other.name == "DoublepowerUpDouble")
+            if (other.name == "DoublePowerUp")
             {
                 AudioSource.PlayClipAtPoint(doubleUp, Camera.main.transform.position, .1f);
                 if (ball.xVelocity == 1)
@@ -136,7 +136,8 @@ public class Collisions : MonoBehaviour
             if(other.name == "SpeedPowerUp")
             {
                 AudioSource.PlayClipAtPoint(speedUp, Camera.main.transform.position, .1f);
-                ball.speed = 50; 
+                ball.speed = 40;
+                powerUpSpeed.SetActive(false);
             }
         }
     }

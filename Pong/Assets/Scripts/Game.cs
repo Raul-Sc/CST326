@@ -7,6 +7,7 @@ public class Game : MonoBehaviour
 {
     [SerializeField] Ball ball;
     [SerializeField] GameObject powerUpDouble;
+    [SerializeField] GameObject powerSpeed;
 
     //keep score
     [SerializeField] Text leftScore;
@@ -31,6 +32,7 @@ public class Game : MonoBehaviour
         //powerUpDouble
         randomPower = Random.Range(3,9);//random digit 
         powerUpDouble.SetActive(false);
+        powerSpeed.SetActive(false);
 
 
         ResetScoreColor(leftScore);
@@ -50,8 +52,16 @@ public class Game : MonoBehaviour
         {
             var y = Random.Range(-25.0f, 25.0f);
             var temp = new Vector3(0, y, 0);
-            powerUpDouble.transform.position = temp;
-            powerUpDouble.SetActive(true);
+            if (Random.Range(0, 9) % 2 == 0)
+            {
+                powerUpDouble.transform.position = temp;
+                powerUpDouble.SetActive(true);
+            }
+            else
+            {
+                powerSpeed.transform.position = temp;
+                powerSpeed.SetActive(true);
+            }
         }
         string scored = " ";
         //left player scored

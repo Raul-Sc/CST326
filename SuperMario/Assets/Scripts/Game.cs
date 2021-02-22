@@ -30,7 +30,7 @@ public class Game : MonoBehaviour
         DateTime time2 = DateTime.Now;
         interval = time2 - time1;
         int time = initialTime - interval.Seconds;
-        //UI
+        //GUI
         Time.text = "TIME\n" + time.ToString().PadLeft(3, '0');
         Coins.text = "x" + playerCoins.ToString().PadLeft(2, '0');
         Score.text = "MARIO\n" + playerScore.ToString().PadLeft(6, '0');

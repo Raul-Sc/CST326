@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class CameraMirror : MonoBehaviour
 {
-  public Transform character;
 
-  void Update()
-  {
-    Vector3 pos = new Vector3(transform.position.x, transform.position.y, character.position.z);
+    public Player follow;
+    void Update()
+    {
+        if (follow.transform.position.x - transform.position.x > 1)
+            transform.Translate(.1f, 0, 0, Camera.main.transform);
+        if (follow.transform.position.x - transform.position.x > 6)
+            transform.Translate(.9f,0,0,Camera.main.transform);
+        if (follow.transform.position.x - transform.position.x < -1)
+            transform.Translate(-.1f, 0, 0, Camera.main.transform);
+        if(follow.transform.position.x - transform.position.x < -6)
+             transform.Translate(-.9f, 0, 0, Camera.main.transform);
 
-    transform.position = pos;
-  }
+    }
 
 }

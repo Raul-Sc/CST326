@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5058404063083719685}
   - component: {fileID: 7002999382388180821}
   - component: {fileID: 3409233504613188241}
+  - component: {fileID: -3827858488342367000}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Untagged
@@ -112,3 +113,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 1
+--- !u!65 &-3827858488342367000
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7952294574847429451}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2, y: 0.8, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}

@@ -59,8 +59,7 @@ public class Game : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(player.transform.position,Vector3.up, out hit,1.6f))
          { 
-            print("Found an object - distance: " + hit.distance);
-             print(hit.transform.gameObject.name);
+
              if (hit.transform.gameObject.name == "Question(Clone)")
              {
                  playerCoins++;
@@ -73,6 +72,7 @@ public class Game : MonoBehaviour
                 }
                 else if (hit.transform.gameObject.name == "Brick(Clone)")
                 {
+                    playerScore += 100;
                     Destroy(hit.transform.gameObject);
                 }
             }

@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class Player : MonoBehaviour
 {
-    float speed = .01f;
+    float speed = 10f;
     float jumpForce = 10;
     private Rigidbody rb;
     private Animator animator;
@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
 
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -37,9 +36,9 @@ public class Player : MonoBehaviour
         float boost = 0;
         if (Input.GetKey("left shift") || Input.GetKey("right shift"))
             boost = 1 - Input.GetAxis("Boost");
-
         animator.SetFloat("Speed", Mathf.Abs(horizontal + (boost * horizontal)));
-        transform.Translate(horizontal + (boost * horizontal) * Time.deltaTime * speed,0,0,Camera.main.transform );
+        transform.Translate((horizontal + (boost * horizontal)) * Time.deltaTime * speed,0,0,Space.World );
+    
 
         //jump---------------------------------------------------------
         animator.SetBool("Jump", Input.GetButtonDown("Jump"));

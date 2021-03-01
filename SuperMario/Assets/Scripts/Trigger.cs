@@ -12,6 +12,7 @@ public class Trigger : MonoBehaviour
             p.gameOver = true;
             Debug.Log("You Won");
         }
-         
+
     }
+    
 }

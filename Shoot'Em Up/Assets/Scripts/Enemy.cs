@@ -8,16 +8,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] MotherShip mother;
     public float bulletSpeed = -1;
     private float xmin, xmax;
-
+    public bool canShoot = true;
     float xspeed = 1;
 
     private void Start()
     {
         GetBounds();
-
     }
     private void Update()
     {
+        CanShoot();
         ReportPos();
         transform.Translate(xspeed * Time.deltaTime,0, 0, Space.World);
     }
@@ -62,9 +62,20 @@ public class Enemy : MonoBehaviour
     public void Fire()
     {
         GameObject bullet =
-            Instantiate(projectile, transform.position + new Vector3(0, 1, 0), Quaternion.identity)
+            Instantiate(projectile, transform.position + new Vector3(0, -1, 0), Quaternion.identity)
                 as GameObject;
         bullet.GetComponent<Rigidbody>().velocity = new Vector3(0, bulletSpeed, 0);
+    }
+    private void CanShoot()
+    {
+        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit))
+        {
+            if (hit.transform.CompareTag("Enemy"))
+                canShoot = false;
+            else
+                canShoot = true;
+        }
+            
     }
     private void OnTriggerEnter(Collider other)
     {

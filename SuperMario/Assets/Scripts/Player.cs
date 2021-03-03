@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if player falls below lowest block,Lava blocks are just visual 4 now
         if (transform.position.y < 0)
             gameOver = true;
         //horizontal movement ---------------------------------------

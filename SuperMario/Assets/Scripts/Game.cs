@@ -24,8 +24,7 @@ public class Game : MonoBehaviour
         player.gameOver = false;
         level.RefreshParse();
         player.transform.position = initial_pos;
-        playerCoins = 0;
-        playerScore = 0;
+     
         Score.text = "MARIO\n" + playerScore.ToString().PadLeft(6, '0');
         Coins.text = "x" + playerCoins.ToString().PadLeft(2, '0');
         time1 = DateTime.Now;
@@ -54,8 +53,9 @@ public class Game : MonoBehaviour
         Timer.text = "TIME\n" + time.ToString().PadLeft(3, '0');
         Coins.text = "x" + playerCoins.ToString().PadLeft(2, '0');
         Score.text = "MARIO\n" + playerScore.ToString().PadLeft(6, '0');
-      
-        //if player hit brick / question mark 
+
+        //if player hit brick / question mark
+        //Debug.DrawRay(player.transform.position, Vector3.up * 1.6f,Color.red);
         RaycastHit hit;
         if (Physics.Raycast(player.transform.position,Vector3.up, out hit,1.6f))
          { 

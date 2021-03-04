@@ -1,28 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MotherShip : MonoBehaviour
 {
     public GameObject Group;
+    public int alive;
+    public int initial;
     public bool makeMove = false;
+    private bool canFire;
+    public int fireRate = 1;
     public float xpos;
     public float speed = 1;
 
+    public bool[] shooters = new bool[25];
+ 
+
     private void Start()
     {
+        alive = 0;
+        canFire = true;
+   
         foreach (Transform parent in Group.transform)
         {
-            foreach(Transform child in parent.transform)
+            foreach (Transform child in parent.transform)
+            {
+                child.gameObject.GetComponent<Enemy>().index = alive;
                 child.gameObject.GetComponent<Enemy>().MoveLeft(speed);
+                if(alive >= 20)
+                {
+                    shooters[alive] = true;
+                }
+
+                alive++;
+            }
         }
+        initial = alive;
     }
 
     private void Update()
     {
         Listen();
-        FindShooters();
+        if (canFire)
+           Fire(FindaShooter());
     }
+    //if child hits boundry, mothership makes all enemies move
     void Listen()
     {
         if (makeMove)
@@ -48,25 +71,27 @@ public class MotherShip : MonoBehaviour
         
 
     }
-    void FindShooters()
+    int FindaShooter()
     {
-        int row = 0;
-        foreach (Transform parent in Group.transform)
-        {
-            
-            int col = 0;
-            foreach (Transform child in parent.transform)
-            {
-                if (child.gameObject.GetComponent<Enemy>().canShoot)
-                    print(row +": " + col);
-                col++;
-             }
-            row++;
-        }
+        System.Random rand = new System.Random();
+        int index =  rand.Next(initial);
+        while (!shooters[index])
+            index = rand.Next(initial);
+        return index;
     }
-    void Fire()
+    void Fire(int index)
     {
-    
+        canFire = false;
+        int row = index / 5;
+        int col = index % 5;
+        Group.transform.GetChild(row).GetChild(col).GetComponent<Enemy>().Fire();
+        StartCoroutine(FireRate());
 
+
+    }
+    IEnumerator FireRate()
+    {
+        yield return new WaitForSeconds(fireRate);
+        canFire = true;
     }
 }

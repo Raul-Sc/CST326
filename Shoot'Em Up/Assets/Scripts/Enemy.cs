@@ -6,20 +6,27 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject projectile;
     [SerializeField] MotherShip mother;
+   
+
     public float bulletSpeed = -1;
     private float xmin, xmax;
-    public bool canShoot = true;
     float xspeed = 1;
 
+    public int index;
+    public bool living = true;
+   
     private void Start()
     {
         GetBounds();
     }
     private void Update()
     {
-        CanShoot();
         ReportPos();
         transform.Translate(xspeed * Time.deltaTime,0, 0, Space.World);
+    }
+    private void FixedUpdate()
+    {
+        CanShoot();
     }
     void GetBounds()
     {
@@ -50,12 +57,12 @@ public class Enemy : MonoBehaviour
         float n;
         if (transform.position.x < 0)
         {
-            n = 1;
+            n = .2f;
         }
         else
         {
             
-            n = -1;
+            n = -.2f;
         }
         transform.position = new Vector3(transform.position.x + n, transform.position.y - 1,0);
     }
@@ -68,12 +75,12 @@ public class Enemy : MonoBehaviour
     }
     private void CanShoot()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit))
+
+        if (mother.shooters[index])
         {
-            if (hit.transform.CompareTag("Enemy"))
-                canShoot = false;
-            else
-                canShoot = true;
+            var cubeRenderer = GetComponent<Renderer>();
+            cubeRenderer.material.SetColor("_Color", Color.yellow);
+
         }
             
     }
@@ -83,6 +90,9 @@ public class Enemy : MonoBehaviour
     }
     void ReportDeath()
     {
-
+        mother.alive--;
+        mother.shooters[index] = false;
+        if (index > 4)
+            mother.shooters[index - 5] = true;
     }
 }

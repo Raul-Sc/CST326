@@ -7,7 +7,7 @@ public class Trigger : MonoBehaviour
     void OnTriggerEnter(Collider collider)
     {
         Destroy(collider.gameObject);
-        if (gameObject.tag == "Enemy")
+        if (!gameObject.CompareTag("Shredder") ) 
         {
             Destroy(gameObject);
         }

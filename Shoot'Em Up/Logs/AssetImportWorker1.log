@@ -3028,3 +3028,30 @@ System memory in use after: 216.7 MB.
 Unloading 67 unused Assets to reduce memory usage. Loaded Objects now: 2970.
 Total: 4.543577 ms (FindLiveObjects: 0.312129 ms CreateObjectMapping: 0.118558 ms MarkObjects: 1.712698 ms  DeleteObjects: 2.398824 ms)
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002381 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.52 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.434 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.50 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2386 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 220.6 MB.
+System memory in use after: 217.0 MB.
+
+Unloading 67 unused Assets to reduce memory usage. Loaded Objects now: 2972.
+Total: 5.559270 ms (FindLiveObjects: 0.555144 ms CreateObjectMapping: 0.207455 ms MarkObjects: 2.007582 ms  DeleteObjects: 2.786338 ms)
+

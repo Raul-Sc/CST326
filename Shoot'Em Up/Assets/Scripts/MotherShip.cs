@@ -5,93 +5,138 @@ using System;
 
 public class MotherShip : MonoBehaviour
 {
-    public GameObject Group;
+    //Our enemy info size & formation
+    public GameObject enemy;
+    readonly int size = 25;
+    readonly int rowSize = 5;
     public int alive;
-    public int initial;
-    public bool makeMove = false;
-    private bool canFire;
-    public int fireRate = 1;
-    public float xpos;
+    public Enemy[] pawns;
+    //movement info
     public float speed = 1;
+    public bool makeMove;
+    public float pos;
 
-    public bool[] shooters = new bool[25];
- 
-
+    //Firing information
+    private bool[] shooters;
+    bool canFire;
+    public float fireRate = 1;
+    public float bulletSpeed = -10;
+    private void Awake()
+    {
+        SpawnAndAssign();
+    }
     private void Start()
     {
-        alive = 0;
+        makeMove = false;
         canFire = true;
-   
-        foreach (Transform parent in Group.transform)
-        {
-            foreach (Transform child in parent.transform)
-            {
-                child.gameObject.GetComponent<Enemy>().index = alive;
-                child.gameObject.GetComponent<Enemy>().MoveLeft(speed);
-                if(alive >= 20)
-                {
-                    shooters[alive] = true;
-                }
-
-                alive++;
-            }
-        }
-        initial = alive;
+        MoveAllLeft();
     }
-
     private void Update()
     {
         Listen();
+        FindShooters();
         if (canFire)
-           Fire(FindaShooter());
+            Fire();
     }
-    //if child hits boundry, mothership makes all enemies move
+    private void SpawnAndAssign()
+    {
+        
+        pawns = new Enemy[size];
+        shooters = new bool[size];
+        alive = size;
+        int x = 0;
+        int y = 0;
+        for (int i = 0; i < size; i++)
+        {
+            shooters[i] = false;
+            GameObject temp = Instantiate(enemy, transform.position + new Vector3(x, y, 0), Quaternion.identity);
+            pawns[i] = temp.GetComponent<Enemy>();
+            if (i / rowSize == 0) pawns[i].tag = "10PTS";
+            if (i / rowSize == 1) pawns[i].tag = "10PTS";
+            if (i / rowSize == 2) pawns[i].tag = "20PTS";
+            if (i / rowSize == 3) pawns[i].tag = "20PTS";
+            if (i / rowSize == 4) pawns[i].tag = "30PTS";
+            pawns[i].index = i;
+
+            x -= 3;
+            if (i % rowSize == (rowSize-1))
+            {
+                x = 0;
+                y += 3;
+            }
+        }
+    }
     void Listen()
     {
         if (makeMove)
-        { 
-            foreach (Transform parent in Group.transform)
-                foreach (Transform child in parent.transform)
-                    child.gameObject.GetComponent<Enemy>().MoveDown();
-            if (xpos < 0)
-            {
-                foreach (Transform parent in Group.transform)
-                    foreach (Transform child in parent.transform)
-                        child.gameObject.GetComponent<Enemy>().MoveRight(speed);
-            }
+        {
+            MoveAllDown();
+            if (pos < 0)
+                MoveAllRight();
             else
-            {
-                foreach (Transform parent in Group.transform)
-                    foreach (Transform child in parent.transform)
-                        child.gameObject.GetComponent<Enemy>().MoveLeft(speed);
-            }
+                MoveAllLeft();
             makeMove = false;
         }
 
-        
+
 
     }
-    int FindaShooter()
+    private void MoveAllLeft()
     {
-        System.Random rand = new System.Random();
-        int index =  rand.Next(initial);
-        while (!shooters[index])
-            index = rand.Next(initial);
-        return index;
+        for(int i = 0; i < size; i++)
+        {
+            if(pawns[i] != null)
+             pawns[i].MoveLeft(speed);
+        }
     }
-    void Fire(int index)
+    private void MoveAllRight()
+    {
+        for (int i = 0; i < size; i++)
+        {
+            if (pawns[i] != null)
+                pawns[i].MoveRight(speed);
+        }
+    }
+    private void MoveAllDown()
+    {
+        for (int i = 0; i < size; i++)
+        {
+            if (pawns[i] != null)
+                pawns[i].MoveDown();
+        }
+    }
+    void FindShooters()
+    {
+        for (int j = 0; j < rowSize; j++)
+        {
+            int i = j;
+            while (pawns[i] == null && i < size - rowSize)
+            {
+                shooters[i] = false;
+                i += rowSize;
+            }
+            pawns[i].canShoot = true;
+            shooters[i] = true;
+        }
+            
+
+    }
+    void Fire()
     {
         canFire = false;
-        int row = index / 5;
-        int col = index % 5;
-        Group.transform.GetChild(row).GetChild(col).GetComponent<Enemy>().Fire();
+        System.Random rand = new System.Random();
+        int index = rand.Next(size);
+        while (!shooters[index])
+            index = rand.Next(rowSize);
+        pawns[index].Fire(bulletSpeed);
         StartCoroutine(FireRate());
 
 
     }
     IEnumerator FireRate()
-    {
+    { 
         yield return new WaitForSeconds(fireRate);
         canFire = true;
     }
+
 }

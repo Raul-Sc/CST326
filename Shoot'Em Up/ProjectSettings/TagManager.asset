@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - Shredder
+  - 30PTS
+  - 20PTS
+  - 10PTS
+  - 40PTS
   layers:
   - Default
   - TransparentFX

@@ -5,29 +5,30 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject projectile;
-    [SerializeField] MotherShip mother;
+    GameObject mother;
+
    
 
-    public float bulletSpeed = -1;
     private float xmin, xmax;
     float xspeed = 1;
 
     public int index;
-    public bool living = true;
-   
+    public bool canShoot = false;
+  
+
     private void Start()
     {
+        mother = GameObject.Find("MotherShip");
         GetBounds();
+        SetColor();
     }
     private void Update()
     {
         ReportPos();
         transform.Translate(xspeed * Time.deltaTime,0, 0, Space.World);
+      
     }
-    private void FixedUpdate()
-    {
-        CanShoot();
-    }
+  
     void GetBounds()
     {
         Camera camera = Camera.main;
@@ -39,11 +40,14 @@ public class Enemy : MonoBehaviour
     {
         if (transform.position.x <= xmin || transform.position.x >= xmax)
         {
-            mother.makeMove = true;
-            mother.xpos = transform.position.x;
+            print("pos reported");
+            mother.GetComponent<MotherShip>().pos = transform.position.x;
+            mother.GetComponent<MotherShip>().makeMove = true;
+
         }
             
     }
+
     public void MoveLeft(float speed)
     {
         xspeed = -1 *speed;
@@ -54,45 +58,59 @@ public class Enemy : MonoBehaviour
     }
     public void MoveDown()
     {
-        float n;
+        float n = .2f;
         if (transform.position.x < 0)
         {
-            n = .2f;
+            n *= 1;
         }
         else
         {
             
-            n = -.2f;
+            n *= -.1f;
         }
         transform.position = new Vector3(transform.position.x + n, transform.position.y - 1,0);
     }
-    public void Fire()
+    public void Fire(float bulletSpeed)
     {
         GameObject bullet =
             Instantiate(projectile, transform.position + new Vector3(0, -1, 0), Quaternion.identity)
                 as GameObject;
         bullet.GetComponent<Rigidbody>().velocity = new Vector3(0, bulletSpeed, 0);
     }
-    private void CanShoot()
+    private void SetColor()
     {
+    
+        if (transform.tag == "?PTS")
+        {
+            var cubeRenderer = GetComponent<Renderer>();
+            cubeRenderer.material.SetColor("_Color", Color.magenta);
 
-        if (mother.shooters[index])
+        }
+        if (transform.tag == "30PTS")
+        {
+            var cubeRenderer = GetComponent<Renderer>();
+            cubeRenderer.material.SetColor("_Color", Color.red);
+
+        }
+        if (transform.tag == "20PTS")
+        {
+            var cubeRenderer = GetComponent<Renderer>();
+            cubeRenderer.material.SetColor("_Color", Color.cyan);
+
+        }
+        if (transform.tag == "10PTS")
         {
             var cubeRenderer = GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", Color.yellow);
 
         }
-            
+
     }
-    private void OnTriggerEnter(Collider other)
+    public void ReportDeath()
     {
-        ReportDeath();
-    }
-    void ReportDeath()
-    {
-        mother.alive--;
-        mother.shooters[index] = false;
-        if (index > 4)
-            mother.shooters[index - 5] = true;
+        print("reported death");
+        mother.GetComponent<MotherShip>().alive--;
+        mother.GetComponent<MotherShip>().pawns[index] = null;
+       
     }
 }

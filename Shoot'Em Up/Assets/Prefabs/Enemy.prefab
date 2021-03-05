@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8274430534267925756}
   - component: {fileID: 8274430534267925757}
   - component: {fileID: 334371789071006612}
+  - component: {fileID: 5594610057903288592}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +110,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 248852391187088597, guid: dfe667bf1979f4277b1b39129c9c4aed, type: 3}
-  mother: {fileID: 0}
-  bulletSpeed: -1
-  speed: 1
+  motherShip: {fileID: 1100326945043358985, guid: 6a1a765783f6d4f028118fe8303187c9, type: 3}
+  index: 0
+  canShoot: 0
+--- !u!114 &5594610057903288592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8274430534267925758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c09294ec36154ab9a98a778d0558fb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

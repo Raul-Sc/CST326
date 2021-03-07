@@ -7,12 +7,17 @@ public class Player : MonoBehaviour
 {
     public Game game;
     [SerializeField] GameObject projectile;
+    //movement
     public float speed = 10;
-    public float bulletSpeed = 1;
-    public int fireRate = 1;
-    bool canFire;
     float xmin, xmax;
-    Vector3 spawnLeft;
+
+    //bullet info
+    float bulletSpeed = 10;
+    public float fireRate = 1;
+    bool canFire;
+
+    //life info
+    Vector3 spawnLeft,spawnOut;
     int lives;
     private void Awake()
     {
@@ -24,6 +29,7 @@ public class Player : MonoBehaviour
         GetBounds();
         canFire = true;
         spawnLeft = new Vector3(xmin, transform.position.y, 0);
+        spawnOut = new Vector3(xmin - 3, transform.position.y, 0);
     }
     private void Update()
     {
@@ -71,9 +77,21 @@ public class Player : MonoBehaviour
     {
         lives--;
         game.UpdateLives();
+        StartCoroutine(Spawn());
+    }
+    IEnumerator Spawn()
+    {
+        float delay = 1;
+        transform.position = spawnOut;
+        if (lives > 0) delay = .5f;
+        yield return new WaitForSeconds(delay);
         if (lives > 0)
             transform.position = spawnLeft;
         else
-            Destroy(gameObject);
+        {
+            transform.position = new Vector3(0, transform.position.y, 0);
+            lives = 3;
+        }
+
     }
 }

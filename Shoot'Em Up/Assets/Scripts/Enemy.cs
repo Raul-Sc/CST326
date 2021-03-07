@@ -7,10 +7,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] GameObject projectile;
     GameObject mother;
    
-
+    //movement
     private float xmin, xmax;
     float xspeed = 1;
-
+    //clone number
     public int index;
   
 
@@ -22,8 +22,8 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-        ReportPos();
-        transform.Translate(xspeed * Time.deltaTime,0, 0, Space.World);
+            ReportPos();
+            transform.Translate(xspeed * Time.deltaTime, 0, 0, Space.World);
     }
   
     void GetBounds()
@@ -37,9 +37,11 @@ public class Enemy : MonoBehaviour
     {
         if (transform.position.x <= xmin || transform.position.x >= xmax)
         {
-           
-            mother.GetComponent<MotherShip>().pos = transform.position.x;
-            mother.GetComponent<MotherShip>().makeMove = true;
+            if (!CompareTag("?PTS"))
+            {
+                mother.GetComponent<MotherShip>().pos = transform.position.x;
+                mother.GetComponent<MotherShip>().makeMove = true;
+            }
 
         }
             
@@ -76,28 +78,26 @@ public class Enemy : MonoBehaviour
     }
     private void SetColor()
     {
-    
+        var cubeRenderer = GetComponent<Renderer>();
+
         if (transform.CompareTag("?PTS"))
         {
-            var cubeRenderer = GetComponent<Renderer>();
-            cubeRenderer.material.SetColor("_Color", Color.magenta);
+
+            cubeRenderer.material.SetColor("_Color", Color.red);
 
         }
         if (transform.CompareTag("30PTS"))
         {
-            var cubeRenderer = GetComponent<Renderer>();
-            cubeRenderer.material.SetColor("_Color", Color.red);
+            cubeRenderer.material.SetColor("_Color", Color.magenta);
 
         }
         if (transform.CompareTag("20PTS"))
         {
-            var cubeRenderer = GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", Color.cyan);
 
         }
         if (transform.CompareTag("10PTS"))
         {
-            var cubeRenderer = GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", Color.yellow);
 
         }

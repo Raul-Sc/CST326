@@ -373,6 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fb19e7e8e134bccb09fc4cf94dc698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mother: {fileID: 355993107366262405}
   SCORE: {fileID: 200297005}
   HI_SCORE: {fileID: 259149291}
   LIVES: {fileID: 369784519}
@@ -491,7 +492,6 @@ MonoBehaviour:
   enemy: {fileID: 8274430534267925758, guid: c3b77266ea0668e4289e92aa866a25ed, type: 3}
   alive: 0
   pawns: []
-  speed: 1
   makeMove: 0
   pos: 0
   fireRate: 1
@@ -529,7 +529,7 @@ PrefabInstance:
       objectReference: {fileID: 5337783647543317732, guid: abf1596e02a7a4c5aba83bcc78fa604a, type: 3}
     - target: {fileID: 2003669634702231717, guid: 5aa448f870dc148efa151185f91dff80, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2128762410400044951, guid: 5aa448f870dc148efa151185f91dff80, type: 3}
       propertyPath: m_LocalPosition.x

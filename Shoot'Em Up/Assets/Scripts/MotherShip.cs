@@ -6,14 +6,16 @@ using System;
 public class MotherShip : MonoBehaviour
 {
     [SerializeField] Game game;
+
     //Our enemy info size & formation
     public GameObject enemy;
     readonly int size = 25;
     readonly int rowSize = 5;
     public int alive;
     public Enemy[] pawns;
+
     //movement info
-    public float speed = 1;
+    float speed = 1.5f;
     public bool makeMove;
     public float pos;
 
@@ -23,27 +25,29 @@ public class MotherShip : MonoBehaviour
     public float fireRate = 1;
     public float bulletSpeed = -10;
 
-    private void Awake()
-    {
-        SpawnAndAssign();
-    }
+    bool beginPlay = false;
+
+    
     private void Start()
     {
+        speed = 1.5f;
         makeMove = false;
         canFire = true;
-        MoveAllLeft();
     }
     private void Update()
     {
-        Listen();
-        FindShooters();
-        if (canFire)
-            Fire();
+        if (beginPlay)
+        {
+            Listen();
+            FindShooters();
+            if (canFire)
+                Fire();
+        }
     }
-    private void SpawnAndAssign()
+    public void SpawnAndAssign()
     {
         
-        pawns = new Enemy[size];
+        pawns = new Enemy[size+1];
         shooters = new bool[size];
         alive = size;
         int x = 0;
@@ -67,6 +71,14 @@ public class MotherShip : MonoBehaviour
                 y += 3;
             }
         }
+        GameObject temp2 = Instantiate(enemy, transform.position + new Vector3(x, y, 0), Quaternion.identity);
+        pawns[size] = pawns[size] = temp2.GetComponent<Enemy>();
+        pawns[size].tag = "?PTS";
+        pawns[size].transform.position = new Vector3(-60, 20, 0);
+        pawns[size].MoveRight(speed * (speed / 2));
+        MoveAllLeft();
+        beginPlay = true;
+
     }
     void Listen()
     {
@@ -109,11 +121,9 @@ public class MotherShip : MonoBehaviour
     }
     void FindShooters()
     {
-        Debug.Log("Finding Shooters from " + rowSize);
         //start at column 0
         for (int j = 0; j < rowSize; j++)
         {
-            Debug.Log("from col : " + j);
             int i = j;//go up the column until not null found
             bool found = false;
             while (i < (size - rowSize) && !found )
@@ -125,7 +135,6 @@ public class MotherShip : MonoBehaviour
                     shooters[i] = false;
                     i += rowSize;
                 }
-                Debug.Log("Checking : " + i);
             }
             if(found)
                 shooters[i] = true;
@@ -155,6 +164,22 @@ public class MotherShip : MonoBehaviour
         alive--;
         game.UpdateScore(pawns[index].tag.ToString());
         pawns[index] = null;
+        if((size - alive)% 5== 0)
+        {
+            speed++;
+        }
+        if (alive < 5)
+            speed++;
+        print(speed);
+    }
+    public void DestroyAll()
+    {
+        beginPlay = false;
+        for (int i = 0; i < size + 1; i++)
+        {
+            if (pawns[i] != null)
+                Destroy(pawns[i].gameObject);
+        }
     }
 
 }

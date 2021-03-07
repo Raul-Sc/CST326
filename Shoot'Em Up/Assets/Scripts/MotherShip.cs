@@ -75,7 +75,7 @@ public class MotherShip : MonoBehaviour
         pawns[size] = pawns[size] = temp2.GetComponent<Enemy>();
         pawns[size].tag = "?PTS";
         pawns[size].transform.position = new Vector3(-60, 20, 0);
-        pawns[size].MoveRight(speed * (speed / 2));
+        pawns[size].MoveRight(5f);
         MoveAllLeft();
         beginPlay = true;
 
@@ -91,8 +91,6 @@ public class MotherShip : MonoBehaviour
                 MoveAllLeft();
             makeMove = false;
         }
-
-
 
     }
     private void MoveAllLeft()
@@ -170,7 +168,7 @@ public class MotherShip : MonoBehaviour
         }
         if (alive < 5)
             speed++;
-        print(speed);
+        print("speed : " + speed);
     }
     public void DestroyAll()
     {

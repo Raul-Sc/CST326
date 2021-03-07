@@ -29,20 +29,21 @@ public class Enemy : MonoBehaviour
     void GetBounds()
     {
         Camera camera = Camera.main;
-        var buffer = transform.localScale.x / 2;
-        xmin = camera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + buffer;
-        xmax = camera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - buffer;
+        var padding = transform.localScale.x / 2;
+        xmin = camera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
+        xmax = camera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
     }
     void ReportPos()
     {
-        if (transform.position.x <= xmin || transform.position.x >= xmax)
+        if (gameObject.CompareTag("?PTS"))
         {
-            if (!CompareTag("?PTS"))
-            {
-                mother.GetComponent<MotherShip>().pos = transform.position.x;
-                mother.GetComponent<MotherShip>().makeMove = true;
-            }
-
+            if (transform.position.x > xmax + 1)
+                xspeed = 0;
+        }
+        else if (transform.position.x <= xmin || transform.position.x >= xmax)
+        {
+            mother.GetComponent<MotherShip>().pos = transform.position.x;
+            mother.GetComponent<MotherShip>().makeMove = true;
         }
             
     }
@@ -67,6 +68,7 @@ public class Enemy : MonoBehaviour
             
             n *= -.1f;
         }
+        //n is padding to insure not hitting the same bound a second time
         transform.position = new Vector3(transform.position.x + n, transform.position.y - 1,0);
     }
     public void Fire(float bulletSpeed)

@@ -11,7 +11,7 @@ public class Game : MonoBehaviour
     public TextMeshProUGUI LIVES;
 
     int playerScore;
-    public int playerLives;
+    int playerLives;
     int highScore;
     
 
@@ -41,9 +41,12 @@ public class Game : MonoBehaviour
     }
     public void UpdateScore(string tag)
     {
+        System.Random rand = new System.Random();
+        int value = rand.Next(100);
         if (tag == "30PTS") playerScore += 30;
         if (tag == "20PTS") playerScore += 20;
         if (tag == "10PTS") playerScore += 10;
+        if (tag == "?PTS")  playerScore += value;
         SCORE.text = "SCORE\n" + (playerScore.ToString()).PadLeft(4,'0');
     }
     public void UpdateLives()

@@ -12,7 +12,6 @@ public class Enemy : MonoBehaviour
     float xspeed = 1;
 
     public int index;
-    public bool canShoot = false;
   
 
     private void Start()
@@ -78,25 +77,25 @@ public class Enemy : MonoBehaviour
     private void SetColor()
     {
     
-        if (transform.tag == "?PTS")
+        if (transform.CompareTag("?PTS"))
         {
             var cubeRenderer = GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", Color.magenta);
 
         }
-        if (transform.tag == "30PTS")
+        if (transform.CompareTag("30PTS"))
         {
             var cubeRenderer = GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", Color.red);
 
         }
-        if (transform.tag == "20PTS")
+        if (transform.CompareTag("20PTS"))
         {
             var cubeRenderer = GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", Color.cyan);
 
         }
-        if (transform.tag == "10PTS")
+        if (transform.CompareTag("10PTS"))
         {
             var cubeRenderer = GetComponent<Renderer>();
             cubeRenderer.material.SetColor("_Color", Color.yellow);

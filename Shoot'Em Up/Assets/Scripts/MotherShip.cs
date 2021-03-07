@@ -109,20 +109,26 @@ public class MotherShip : MonoBehaviour
     }
     void FindShooters()
     {
-        Debug.Log("Finding Shooters");
+        Debug.Log("Finding Shooters from " + rowSize);
         //start at column 0
         for (int j = 0; j < rowSize; j++)
         {
+            Debug.Log("from col : " + j);
             int i = j;//go up the column until not null found
-            Debug.Log("Checking : " + j + " ::" + i);
-            while (pawns[i] == null && i < (size - rowSize))
+            bool found = false;
+            while (i < (size - rowSize) && !found )
             {
-                Debug.Log("Checking : " + j + " ::" + i);
-                shooters[i] = false;
-                i += rowSize;
+                if (pawns[i] != null)
+                    found = true;
+                else
+                {
+                    shooters[i] = false;
+                    i += rowSize;
+                }
+                Debug.Log("Checking : " + i);
             }
-            pawns[i].canShoot = true;
-            shooters[i] = true;
+            if(found)
+                shooters[i] = true;
         }
 
 

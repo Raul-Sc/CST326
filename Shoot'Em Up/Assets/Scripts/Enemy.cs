@@ -6,7 +6,6 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject projectile;
     GameObject mother;
-
    
 
     private float xmin, xmax;
@@ -26,7 +25,6 @@ public class Enemy : MonoBehaviour
     {
         ReportPos();
         transform.Translate(xspeed * Time.deltaTime,0, 0, Space.World);
-      
     }
   
     void GetBounds()
@@ -40,7 +38,7 @@ public class Enemy : MonoBehaviour
     {
         if (transform.position.x <= xmin || transform.position.x >= xmax)
         {
-            print("pos reported");
+           
             mother.GetComponent<MotherShip>().pos = transform.position.x;
             mother.GetComponent<MotherShip>().makeMove = true;
 
@@ -108,9 +106,7 @@ public class Enemy : MonoBehaviour
     }
     public void ReportDeath()
     {
-        print("reported death");
-        mother.GetComponent<MotherShip>().alive--;
-        mother.GetComponent<MotherShip>().pawns[index] = null;
+        mother.GetComponent<MotherShip>().PawnDeath(index);
        
     }
 }

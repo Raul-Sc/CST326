@@ -110,7 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 248852391187088597, guid: dfe667bf1979f4277b1b39129c9c4aed, type: 3}
-  motherShip: {fileID: 1100326945043358985, guid: 6a1a765783f6d4f028118fe8303187c9, type: 3}
   index: 0
   canShoot: 0
 --- !u!114 &5594610057903288592
@@ -125,3 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c09294ec36154ab9a98a778d0558fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 5337783647543317732, guid: abf1596e02a7a4c5aba83bcc78fa604a, type: 3}

@@ -5,6 +5,7 @@ using System;
 
 public class MotherShip : MonoBehaviour
 {
+    [SerializeField] Game game;
     //Our enemy info size & formation
     public GameObject enemy;
     readonly int size = 25;
@@ -21,6 +22,7 @@ public class MotherShip : MonoBehaviour
     bool canFire;
     public float fireRate = 1;
     public float bulletSpeed = -10;
+
     private void Awake()
     {
         SpawnAndAssign();
@@ -107,18 +109,22 @@ public class MotherShip : MonoBehaviour
     }
     void FindShooters()
     {
+        Debug.Log("Finding Shooters");
+        //start at column 0
         for (int j = 0; j < rowSize; j++)
         {
-            int i = j;
-            while (pawns[i] == null && i < size - rowSize)
+            int i = j;//go up the column until not null found
+            Debug.Log("Checking : " + j + " ::" + i);
+            while (pawns[i] == null && i < (size - rowSize))
             {
+                Debug.Log("Checking : " + j + " ::" + i);
                 shooters[i] = false;
                 i += rowSize;
             }
             pawns[i].canShoot = true;
             shooters[i] = true;
         }
-            
+
 
     }
     void Fire()
@@ -137,6 +143,12 @@ public class MotherShip : MonoBehaviour
     { 
         yield return new WaitForSeconds(fireRate);
         canFire = true;
+    }
+    public void  PawnDeath(int index)
+    {
+        alive--;
+        game.UpdateScore(pawns[index].tag.ToString());
+        pawns[index] = null;
     }
 
 }

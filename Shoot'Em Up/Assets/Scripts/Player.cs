@@ -5,18 +5,25 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public Game game;
     [SerializeField] GameObject projectile;
     public float speed = 10;
     public float bulletSpeed = 1;
     public int fireRate = 1;
     bool canFire;
     float xmin, xmax;
-
+    Vector3 spawnLeft;
+    int lives;
+    private void Awake()
+    {
+        lives = 3;
+    }
 
     private void Start()
     {
         GetBounds();
         canFire = true;
+        spawnLeft = new Vector3(xmin, transform.position.y, 0);
     }
     private void Update()
     {
@@ -59,5 +66,14 @@ public class Player : MonoBehaviour
         
         yield return new WaitForSeconds(fireRate);
         canFire = true;
+    }
+    public void ReportDeath()
+    {
+        lives--;
+        game.UpdateLives();
+        if (lives > 0)
+            transform.position = spawnLeft;
+        else
+            Destroy(gameObject);
     }
 }

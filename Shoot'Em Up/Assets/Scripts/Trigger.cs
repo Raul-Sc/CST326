@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Trigger : MonoBehaviour
 {
     void OnTriggerEnter(Collider collider)
@@ -10,8 +11,17 @@ public class Trigger : MonoBehaviour
         if (!gameObject.CompareTag("Shredder") ) 
         {
             if (gameObject.name == "Enemy(Clone)")
+            {
                 gameObject.GetComponent<Enemy>().ReportDeath();
-            Destroy(gameObject);
+                Destroy(gameObject);
+            }
+            else if (gameObject.CompareTag("Player"))
+            {
+                gameObject.GetComponent<Player>().ReportDeath();
+
+            }
+            else
+                Destroy(gameObject);
         }
     }
 }

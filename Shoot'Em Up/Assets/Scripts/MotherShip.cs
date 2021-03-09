@@ -71,6 +71,7 @@ public class MotherShip : MonoBehaviour
                 y += 3;
             }
         }
+        //spawn 4 type of enemy 
         GameObject temp2 = Instantiate(enemy, transform.position + new Vector3(x, y, 0), Quaternion.identity);
         pawns[size] = pawns[size] = temp2.GetComponent<Enemy>();
         pawns[size].tag = "?PTS";

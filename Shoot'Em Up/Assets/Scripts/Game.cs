@@ -43,6 +43,7 @@ public class Game : MonoBehaviour
     {
         System.Random rand = new System.Random();
         int value = rand.Next(100);
+
         if (tag == "30PTS") playerScore += 30;
         if (tag == "20PTS") playerScore += 20;
         if (tag == "10PTS") playerScore += 10;

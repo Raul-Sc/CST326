@@ -1,0 +1,143 @@
+Using pre-set license
+
+ COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2020.2.2f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/home/Desktop/Spring-21/CST-326/GitHub/CST326/Lighting
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+50004
+Successfully changed project path to: /Users/home/Desktop/Spring-21/CST-326/GitHub/CST326/Lighting
+/Users/home/Desktop/Spring-21/CST-326/GitHub/CST326/Lighting
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 113.96 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.2.2f1 (068178b99f32)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.2.2f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/home/Desktop/Spring-21/CST-326/GitHub/CST326/Lighting/Assets
+GfxDevice: creating device client; threaded=0
+2021-03-11 18:23:32.971 Unity[51172:3634095] Color LCD preferred device: Intel(R) Iris(TM) Plus Graphics 640 (low power)
+2021-03-11 18:23:32.971 Unity[51172:3634095] Metal devices available: 1
+2021-03-11 18:23:32.971 Unity[51172:3634095] 0: Intel(R) Iris(TM) Plus Graphics 640 (low power)
+2021-03-11 18:23:32.972 Unity[51172:3634095] Using device Intel(R) Iris(TM) Plus Graphics 640 (low power)
+Initializing Metal device caps: Intel(R) Iris(TM) Plus Graphics 640
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2020.2.2f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2020.2.2f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2020.2.2f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56172
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2020.2.2f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2020.2.2f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2020.2.2f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.036109 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 73.85 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  9.391 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001916 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 50.98 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.328 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Launching external process: /Applications/Unity/Hub/Editor/2020.2.2f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Refreshing native plugins compatible for Editor in 0.44 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2396 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 176.2 MB.
+System memory in use after: 174.0 MB.
+
+Unloading 46 unused Assets to reduce memory usage. Loaded Objects now: 2799.
+Total: 5.857961 ms (FindLiveObjects: 0.475999 ms CreateObjectMapping: 0.186695 ms MarkObjects: 3.255491 ms  DeleteObjects: 1.937616 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Readme.asset
+  artifactKey: Guid(83c2ed844a8c74b779a4c823d16594b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Readme.asset using Guid(83c2ed844a8c74b779a4c823d16594b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b3473d83357613cd2f6b35c5fc253af') in 1.451328 seconds
+  Import took 1.459125 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 38.808628 seconds.
+  path: Assets/Monkey.fbx
+  artifactKey: Guid(a6544097c6820440b9a81972ab58b86b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Monkey.fbx using Guid(a6544097c6820440b9a81972ab58b86b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '49c208cdb4a2beafe2584b0fa2db628c') in 1.988492 seconds
+  Import took 1.994602 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000471 seconds.
+  path: Assets/Room.fbx
+  artifactKey: Guid(a553a902e5d2241029d018daef3e404f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Room.fbx using Guid(a553a902e5d2241029d018daef3e404f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c00c88cc7cc2fd501f4672d9dcff7019') in 0.098636 seconds
+  Import took 0.105411 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 494.089393 seconds.
+  path: Assets/Materials/Skybox_Mat.mat
+  artifactKey: Guid(0ffaa0b7117ba8c47a9d05ae701d4b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Skybox_Mat.mat using Guid(0ffaa0b7117ba8c47a9d05ae701d4b4d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b93c2898d13f58126a3c9bd71fd34d7b') in 0.263518 seconds
+  Import took 0.272187 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.206816 seconds.
+  path: Assets/Materials/New Material.mat
+  artifactKey: Guid(c6145d22f973a4ba89a68f8caf66f6a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/New Material.mat using Guid(c6145d22f973a4ba89a68f8caf66f6a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '962f148ef2d9bd4582d623c721242562') in 0.024156 seconds
+  Import took 0.030905 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 300.725375 seconds.
+  path: Assets/Materials/New Material.mat
+  artifactKey: Guid(d34296bd8f1354749b881f7fcbeb03f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/New Material.mat using Guid(d34296bd8f1354749b881f7fcbeb03f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfe8a0dc73d2c9c4d501104fc7625481') in 0.034047 seconds
+  Import took 0.047535 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000372 seconds.
+  path: Assets/Materials/orange.mat
+  artifactKey: Guid(c6145d22f973a4ba89a68f8caf66f6a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/orange.mat using Guid(c6145d22f973a4ba89a68f8caf66f6a7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45ba4535e276fdcb63b3726f6bc68737') in 0.062518 seconds
+  Import took 0.067477 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1751.848023 seconds.
+  path: Assets/Materials/Blue.mat
+  artifactKey: Guid(d34296bd8f1354749b881f7fcbeb03f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Blue.mat using Guid(d34296bd8f1354749b881f7fcbeb03f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1026bd4032aa3e669d3e9c1804ab7c47') in 0.066682 seconds
+  Import took 0.106883 seconds .
+

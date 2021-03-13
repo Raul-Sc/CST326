@@ -13,6 +13,7 @@ public class Game : MonoBehaviour
     int playerScore;
     int playerLives;
     int highScore;
+    int enemiesAlive;
     
 
     private void Awake()
@@ -36,7 +37,7 @@ public class Game : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
         mother.SpawnAndAssign();
-
+        enemiesAlive = mother.alive;
 
     }
     public void UpdateScore(string tag)
@@ -50,7 +51,7 @@ public class Game : MonoBehaviour
         if (tag == "?PTS")  playerScore += value;
         SCORE.text = "SCORE\n" + (playerScore.ToString()).PadLeft(4,'0');
     }
-    public void UpdateLives()
+    public void UpdatePlayerLives()
     {
         playerLives--;
         LIVES.text = playerLives.ToString();
@@ -59,6 +60,16 @@ public class Game : MonoBehaviour
             mother.DestroyAll();
             if (playerScore > highScore) highScore = playerScore;
                  HI_SCORE.text = "HI-SCORE\n" + (highScore.ToString().PadLeft(4, '0'));
+            Start();
+        }
+           
+    }
+    public void UpdateEnemyLives()
+    {
+        enemiesAlive--;
+        print(enemiesAlive);
+        if (enemiesAlive == 0)
+        {
             Start();
         }
     }

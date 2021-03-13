@@ -30,7 +30,7 @@ public class MotherShip : MonoBehaviour
     
     private void Start()
     {
-        speed = 1.5f;
+        speed = 100.5f;
         makeMove = false;
         canFire = true;
     }
@@ -40,8 +40,8 @@ public class MotherShip : MonoBehaviour
         {
             Listen();
             FindShooters();
-            if (canFire)
-                Fire();
+            //if (canFire)
+               //Fire();
         }
     }
     public void SpawnAndAssign()
@@ -120,23 +120,24 @@ public class MotherShip : MonoBehaviour
     }
     void FindShooters()
     {
-        //start at column 0
-        for (int j = 0; j < rowSize; j++)
+        int i = 0;
+        int j = 0;
+        while (i < size && j < rowSize)
         {
-            int i = j;//go up the column until not null found
-            bool found = false;
-            while (i < (size - rowSize) && !found )
+            if (pawns[i] != null)
             {
-                if (pawns[i] != null)
-                    found = true;
-                else
-                {
-                    shooters[i] = false;
-                    i += rowSize;
-                }
-            }
-            if(found)
                 shooters[i] = true;
+                pawns[i].fire = true;
+                i = (i % rowSize) + 1;
+                j++;
+            }
+            else if (i >= size - rowSize)
+            {
+                i = (i % rowSize) + 1;
+                j++;
+            }
+            else
+                i += rowSize;
         }
 
 
@@ -161,15 +162,16 @@ public class MotherShip : MonoBehaviour
     public void  PawnDeath(int index)
     {
         alive--;
+        game.UpdateEnemyLives();
         game.UpdateScore(pawns[index].tag.ToString());
         pawns[index] = null;
+        shooters[index] = false;
         if((size - alive)% 5== 0)
         {
             speed++;
         }
         if (alive < 5)
-            speed++;
-        print("speed : " + speed);
+            speed++;           
     }
     public void DestroyAll()
     {

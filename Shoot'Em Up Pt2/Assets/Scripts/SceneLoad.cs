@@ -4,20 +4,31 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SceneLoad : MonoBehaviour
 {
+    float delay = .1f;
     IEnumerator LoadNext()
     {
-        float delay = .2f;
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-        if (sceneIndex == 3)
-        {
-            sceneIndex = 0;
-            delay = 3f;
-        }
+        
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (sceneIndex == 2)
+            sceneIndex = -1;
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene(sceneIndex+1);
     }
     public void Next()
     {
         StartCoroutine(LoadNext());
     }
+    private void FixedUpdate()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            delay = 3f;
+            Next();
+            delay = .1f;
+        }
+       
+    
+
+    }
+    
 }

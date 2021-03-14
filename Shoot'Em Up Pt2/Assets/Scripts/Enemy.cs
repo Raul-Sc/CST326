@@ -8,12 +8,11 @@ public class Enemy : MonoBehaviour
     GameObject mother;
    
     //movement
-    private float xmin, xmax;
+    private float xmin, xmax, ymin;
     float xspeed = 1;
     //clone number
     public int index;
 
-    public bool fire = false;
 
     private void Start()
     {
@@ -23,8 +22,8 @@ public class Enemy : MonoBehaviour
     }
     private void Update()
     {
-            ReportPos();
-            transform.Translate(xspeed * Time.deltaTime, 0, 0, Space.World);
+       ReportPos();
+       //transform.Translate(xspeed * Time.deltaTime, 0, 0, Space.World);
     }
   
     void GetBounds()
@@ -33,6 +32,7 @@ public class Enemy : MonoBehaviour
         var padding = transform.localScale.x / 2;
         xmin = camera.ViewportToWorldPoint(new Vector3(0, 0, 0)).x + padding;
         xmax = camera.ViewportToWorldPoint(new Vector3(1, 0, 0)).x - padding;
+        ymin = camera.ViewportToWorldPoint(new Vector3(0, 0, 0)).y;
     }
     void ReportPos()
     {

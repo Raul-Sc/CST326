@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
     //bullet info
     float bulletSpeed = 10;
-    public float fireRate = 1;
+    public float fireRate = .8f;
     bool canFire;
 
     //life info

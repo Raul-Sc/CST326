@@ -7,9 +7,8 @@ public class Trigger : MonoBehaviour
 {
     void OnTriggerEnter(Collider collider)
     {
-        if(collider.gameObject.name == "Enemy(Clone)")
-            collider.gameObject.GetComponent<Enemy>().ReportDeath();
-        Destroy(collider.gameObject);
+        if(collider.name != "Player")
+            Destroy(collider.gameObject);
         if (!gameObject.CompareTag("Shredder") ) 
         {
             if (gameObject.name == "Enemy(Clone)")

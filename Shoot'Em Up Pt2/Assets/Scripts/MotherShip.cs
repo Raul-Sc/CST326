@@ -22,7 +22,7 @@ public class MotherShip : MonoBehaviour
     //Firing information
     private bool[] shooters;
     bool canFire;
-    public float fireRate = 1;
+    float fireRate = 2.4f;
     public float bulletSpeed = -10;
 
     bool beginPlay = false;
@@ -38,16 +38,17 @@ public class MotherShip : MonoBehaviour
                Fire();
         }
     }
-    public void SpawnAndTag(int setSize, int setRowsize, float setSpeed)
+    public void SpawnAndTag(int setSize, int setRowsize)
     {
+    
         size = setSize;
         rowSize = setRowsize;
-        speed = setSpeed;
+        speed = game.speed ;
 
         makeMove = false;
         canFire = true;
         pawns = new Enemy[size+1];
-        shooters = new bool[size];
+        shooters = new bool[size+1];
         alive = size;
         //positions
         int x = 0;
@@ -129,7 +130,6 @@ public class MotherShip : MonoBehaviour
             if (pawns[i] != null)
             {
                 shooters[i] = true;
-                pawns[i].fire = true;
                 i = (i % rowSize) + 1;
                 j++;
             }
@@ -141,7 +141,7 @@ public class MotherShip : MonoBehaviour
             else
                 i += rowSize;
         }
-
+     
 
     }
     void Fire()
@@ -150,11 +150,11 @@ public class MotherShip : MonoBehaviour
         System.Random rand = new System.Random();
         int index = rand.Next(size);
         while (!shooters[index])
-            index = rand.Next(rowSize);
+        {
+           index = rand.Next(size);
+        }
         pawns[index].Fire(bulletSpeed);
         StartCoroutine(FireRate());
-
-
     }
     IEnumerator FireRate()
     { 
@@ -164,16 +164,17 @@ public class MotherShip : MonoBehaviour
     public void  PawnDeath(int index)
     {
         alive--;
+        shooters[index] = false;
         game.UpdateEnemyLives();
         game.UpdateScore(pawns[index].tag.ToString());
         pawns[index] = null;
-        shooters[index] = false;
-        if((size - alive)% 5== 0)
+        if((size - alive)% rowSize== 0)
         {
             speed++;
         }
-        if (alive < 5)
-            speed++;           
+        if (alive < rowSize)
+            speed++;
+       
     }
     public void DestroyAll()
     {

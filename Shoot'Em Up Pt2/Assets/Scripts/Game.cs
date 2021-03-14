@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+using Unity.IO;
 public class Game : MonoBehaviour
 {
     public SceneLoad scene;
+    public GameObject shieldPre;
+    GameObject shields;
     [SerializeField] MotherShip mother;
     public TextMeshProUGUI SCORE;
     public TextMeshProUGUI HI_SCORE;
@@ -16,19 +18,20 @@ public class Game : MonoBehaviour
     int highScore;
     //mothership properties
     int enemiesAlive;
-    int size = 25;
+    int size = 5;
     int rowSize = 5;
-    float speed = 1;
+    public float speed = 2;
 
     private void Awake()
     {
         playerScore = 0;
         playerLives = 3;
-        highScore = 0;
-        
+        highScore = PlayerPrefs.GetInt("HighScore",0);
     }
     private void Start()
     {
+        speed = 2;
+        shields = Instantiate(shieldPre, transform.position, Quaternion.identity);
         playerScore = 0;
         playerLives = 3;
         SCORE.text = "SCORE\n" + (playerScore.ToString()).PadLeft(4,'0');
@@ -39,9 +42,10 @@ public class Game : MonoBehaviour
     IEnumerator Begin()
     {
 
-        yield return new WaitForSeconds(2f);
-        mother.SpawnAndTag(size,rowSize,speed);
+        yield return new WaitForSeconds(1f);
+        mother.SpawnAndTag(size, rowSize);
         enemiesAlive = size;
+        
 
     }
     public void UpdateScore(string tag)
@@ -59,22 +63,27 @@ public class Game : MonoBehaviour
     {
         playerLives--;
         LIVES.text = playerLives.ToString();
+        //roll credits + update highscore
         if (playerLives == 0)
         {
             mother.DestroyAll();
-            if (playerScore > highScore) highScore = playerScore;
-                 HI_SCORE.text = "HI-SCORE\n" + (highScore.ToString().PadLeft(4, '0'));
+            Destroy(shields);
+            if (playerScore > highScore)
+                PlayerPrefs.SetInt("HighScore", playerScore);
             scene.Next();
         }
            
     }
     public void UpdateEnemyLives()
     {
+       
         enemiesAlive--;
-        print(enemiesAlive);
         if (enemiesAlive == 0)
         {
-            Start();
+            //respawn enemies a bit faster
+            speed *=1.5f;
+            mother.DestroyAll();
+            StartCoroutine(Begin());
         }
     }
 

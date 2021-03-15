@@ -248,7 +248,7 @@ MonoBehaviour:
   SCORE: {fileID: 200297005}
   HI_SCORE: {fileID: 259149291}
   LIVES: {fileID: 369784519}
-  speed: 2
+  speed: 0.5
 --- !u!4 &672759554
 Transform:
   m_ObjectHideFlags: 0
@@ -586,8 +586,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 672759553}
     - target: {fileID: 7129477260455293630, guid: 46f7c04cfd4b73e49a865596061b9ab8, type: 3}
+      propertyPath: speed
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7129477260455293630, guid: 46f7c04cfd4b73e49a865596061b9ab8, type: 3}
       propertyPath: fireRate
-      value: 1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7129477260455293630, guid: 46f7c04cfd4b73e49a865596061b9ab8, type: 3}
       propertyPath: projectile

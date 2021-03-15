@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour
     //clone number
     public int index;
 
+    public bool canFire = false;
+
 
     private void Start()
     {
@@ -23,7 +25,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
        ReportPos();
-       //transform.Translate(xspeed * Time.deltaTime, 0, 0, Space.World);
+       transform.Translate(xspeed * Time.deltaTime, 0, 0, Space.World);
     }
   
     void GetBounds()
@@ -58,7 +60,7 @@ public class Enemy : MonoBehaviour
     }
     public void MoveDown()
     {
-        float n = .2f;
+        float n = .1f;
         if (transform.position.x < 0)
         {
             n *= 1;
@@ -66,7 +68,7 @@ public class Enemy : MonoBehaviour
         else
         {
             
-            n *= -.1f;
+            n *= -1f;
         }
         //n is padding to insure not hitting the same bound a second time
         transform.position = new Vector3(transform.position.x + n, transform.position.y - 1,0);
@@ -74,7 +76,7 @@ public class Enemy : MonoBehaviour
     public void Fire(float bulletSpeed)
     {
         GameObject bullet =
-            Instantiate(projectile, transform.position + new Vector3(0, -1, 0), Quaternion.identity)
+            Instantiate(projectile, transform.position + new Vector3(0, -1 * transform.localScale.y, 0), Quaternion.identity)
                 as GameObject;
         bullet.GetComponent<Rigidbody>().velocity = new Vector3(0, bulletSpeed, 0);
     }

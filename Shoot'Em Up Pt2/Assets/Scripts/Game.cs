@@ -18,7 +18,7 @@ public class Game : MonoBehaviour
     int highScore;
     //mothership properties
     int enemiesAlive;
-    int size = 5;
+    int size = 25;
     int rowSize = 5;
     public float speed = 2;
 

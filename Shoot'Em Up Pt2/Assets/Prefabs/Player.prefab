@@ -108,5 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cdcdc8f506968548b9b30cef6fdf27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
   projectile: {fileID: 0}
   speed: 10
+  fireRate: 0.8

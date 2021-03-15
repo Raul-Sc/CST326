@@ -60,7 +60,7 @@ public class Player : MonoBehaviour
     {
         canFire = false;
         GameObject bullet =
-            Instantiate(projectile, transform.position+ new Vector3(0,1,0), Quaternion.identity)
+            Instantiate(projectile, transform.position + new Vector3(0, transform.localScale.y, 0), Quaternion.identity)
                 as GameObject;
         bullet.GetComponent<Rigidbody>().velocity = new Vector3(0, bulletSpeed, 0);
         StartCoroutine(FireRate());

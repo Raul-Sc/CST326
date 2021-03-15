@@ -51,8 +51,8 @@ public class MotherShip : MonoBehaviour
         shooters = new bool[size+1];
         alive = size;
         //positions
-        int x = 0;
-        int y = 0;
+        float x = 0;
+        float y = 0;
         int row = 0;
         for (int i = 0; i < size; i++)
         {
@@ -66,11 +66,11 @@ public class MotherShip : MonoBehaviour
             if (row % rowSize == 4) pawns[i].tag = "30PTS";
             pawns[i].index = i;
 
-            x -= 3;
+            x -= 1.5f;
             if (i % rowSize == (rowSize-1))
             {
                 x = 0;
-                y += 3;
+                y += 1.5f;
                 row++;
             }
         }
@@ -78,7 +78,7 @@ public class MotherShip : MonoBehaviour
         GameObject temp2 = Instantiate(enemy, transform.position + new Vector3(x, y, 0), Quaternion.identity);
         pawns[size] = pawns[size] = temp2.GetComponent<Enemy>();
         pawns[size].tag = "?PTS";
-        pawns[size].transform.position = new Vector3(-60, 20, 0);
+        pawns[size].transform.position = new Vector3(-50, 10, 0);
         pawns[size].MoveRight(5f);
         MoveAllLeft();
         beginPlay = true;
@@ -130,6 +130,7 @@ public class MotherShip : MonoBehaviour
             if (pawns[i] != null)
             {
                 shooters[i] = true;
+                pawns[i].canFire = true;
                 i = (i % rowSize) + 1;
                 j++;
             }

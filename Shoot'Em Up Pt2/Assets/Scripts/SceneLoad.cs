@@ -30,5 +30,4 @@ public class SceneLoad : MonoBehaviour
     
 
     }
-    
 }

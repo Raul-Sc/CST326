@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        //obtain scene mothership
         mother = GameObject.Find("MotherShip");
         GetBounds();
         SetColor();
@@ -42,7 +43,7 @@ public class Enemy : MonoBehaviour
         {
             if (transform.position.x > xmax + 3)
             {
-                xspeed = 0;
+                Destroy(gameObject);
             }
         }
         else if (transform.position.x <= xmin || transform.position.x >= xmax)

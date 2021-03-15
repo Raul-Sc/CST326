@@ -20,7 +20,7 @@ public class Game : MonoBehaviour
     int enemiesAlive;
     int size = 25;
     int rowSize = 5;
-    public float speed = 2;
+    public float speed = 1;
 
     private void Awake()
     {

@@ -22,7 +22,7 @@ public class SceneLoad : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 2)
         {
-            delay = 3f;
+            delay = 5f;
             Next();
             delay = .1f;
         }

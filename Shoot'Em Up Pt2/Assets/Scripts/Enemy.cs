@@ -40,8 +40,10 @@ public class Enemy : MonoBehaviour
     {
         if (gameObject.CompareTag("?PTS"))
         {
-            if (transform.position.x > xmax + 1)
+            if (transform.position.x > xmax + 3)
+            {
                 xspeed = 0;
+            }
         }
         else if (transform.position.x <= xmin || transform.position.x >= xmax)
         {

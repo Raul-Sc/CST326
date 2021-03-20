@@ -81,6 +81,7 @@ class Enemy
     Functions:
         Start()//get path and move to spawn point
         MoveToSpawnPoint()
+
         Move()//constant x movement
         SetOrientation()// calc angle to next WayPoint;
         

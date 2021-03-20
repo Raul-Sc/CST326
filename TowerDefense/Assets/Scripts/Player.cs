@@ -35,8 +35,6 @@ public class Player : MonoBehaviour
         }
     }
 
-
-
     /*
     class Player
         functions:

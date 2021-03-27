@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
     private void Update()
     {
        ReportPos();
-       //transform.Translate(xspeed * Time.deltaTime, 0, 0, Space.World);
+       transform.Translate(xspeed * Time.deltaTime, 0, 0, Space.World);
     }
   
     void GetBounds()

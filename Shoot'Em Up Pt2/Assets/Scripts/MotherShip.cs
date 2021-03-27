@@ -22,8 +22,8 @@ public class MotherShip : MonoBehaviour
     //Firing information
     private bool[] shooters;
     bool canFire;
-    float fireRate = 2.4f;
-    public float bulletSpeed = -10;
+    float fireRate = 3f;
+    public float bulletSpeed = -5;
 
     bool beginPlay = false;
 

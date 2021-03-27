@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     List<Vector3> myPath;
     int index = 1;
 
-    float speed = 1f;
+    public float speed = 1f;
     public int health = 100;
     int bounty = 3;
 
@@ -36,9 +36,9 @@ public class Enemy : MonoBehaviour
     }
     private void Move()
     {
-        transform.Translate(speed * Time.deltaTime, 0, 0, Space.Self);
-        if (Mathf.Abs(transform.position.x - myPath[index].x) < 0.1f ||
-            Mathf.Abs(transform.position.y - myPath[index].y) < 0.1f)
+        float step = speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, myPath[index], step);
+        if ( (transform.position - myPath[index]) == new Vector3(0,0,0))
         {
             index++;
         }

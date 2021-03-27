@@ -431,7 +431,7 @@ public class MazeBuilder : MonoBehaviour
 
     public void Main()
     {
-        UnityEngine.Random.InitState(42);
+        UnityEngine.Random.InitState(4);
         int n = 13;
         Maze test = new Maze(n);
         test.MakeMaze();

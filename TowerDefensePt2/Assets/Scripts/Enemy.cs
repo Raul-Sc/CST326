@@ -12,9 +12,13 @@ public class Enemy : MonoBehaviour
     public int health = 100;
     int bounty = 3;
 
+    public bool smart = false;
+
     private void Start()
     {
-        myPath = maze.bfsPath;
+        myPath = maze.seekPath;
+        if (smart)
+            myPath = maze.bfsPath;
         if (myPath != null)
         { 
             MoveToSpawn();

@@ -206,7 +206,7 @@ public class MazeBuilder : MonoBehaviour
 
     }
 
-    public struct Square
+    public class Square
     {
         public bool left;
         public bool right;
@@ -349,17 +349,18 @@ public class MazeBuilder : MonoBehaviour
     }
     public void Seek(List<Square> maze, List<int> seek, int size)
     {
-        int t = 0;
         int[] found = new int[size];
         for (int i = 0; i < maze.Count; i++)
             found[i] = 0;
         List<Square> copy = maze;
         int n = (int)Mathf.Sqrt(maze.Count);
+        int t = 0;
+        found[0] = 1;
         while (t != maze.Count - 1)
         {
             seek.Add(t);
+
             int prev = t;
-            found[t] += 1;
 
             bool leftOpen = false;
             bool rightOpen = false;
@@ -394,13 +395,13 @@ public class MazeBuilder : MonoBehaviour
                     leftOpen = true;
                 }
             }
-
             int least = size;
             int choice = t;
-            if (rightOpen && found[t + 1] < least)
+            if (rightOpen && found[t + 1] < least )
             {
                 choice = t + 1;
                 least = found[t + 1];
+   
             }
             if (downOpen && found[t + n] < least)
             {
@@ -418,12 +419,12 @@ public class MazeBuilder : MonoBehaviour
                 least = found[t - 1];
             }
             t = choice;
-
-            if (found[t] > 0)
+            found[t] += 1;
+            if (found[t] > 1 )
             {
                 if (prev - t == 1) copy[t].SetRight(true);
                 if (prev - t == n) copy[t].SetBottom(true);
-                if (prev - t == -n) copy[t].SetTop(true);
+                if (prev - t == -n)  copy[t].SetTop(true); 
                 if (prev - t == -1) copy[t].SetLeft(true);
             }
         }
@@ -432,7 +433,7 @@ public class MazeBuilder : MonoBehaviour
     public void Main()
     {
         UnityEngine.Random.InitState(4);
-        int n = 13;
+        int n = 100;
         Maze test = new Maze(n);
         test.MakeMaze();
         List<Square> maze = new List<Square>();
@@ -482,7 +483,7 @@ public class MazeBuilder : MonoBehaviour
             bfsPath.Add(coordinate);
             coords +="(" + x + ", " + y + ")\n";
         }
-        print(coords);
+        //print(coords);
         coords = "";
         print("SEEK AKA Meduim : " + seek.Count + '\n');
         for (int i = 0; i < seek.Count; i++)
@@ -497,9 +498,9 @@ public class MazeBuilder : MonoBehaviour
         float lx = 2 * (n - 1); float ly = (transform.position.y - 2 * (n - 1));
         Vector3 excoordinate = new Vector3(lx, ly, transform.position.z);
         seekPath.Add(excoordinate);
-        print(coords);
-        print("MAZE \n\n");
-        test.PrintBoard();
+        //print(coords);
+       // print("MAZE \n\n");
+        //test.PrintBoard();
 
     }
     private void Awake()

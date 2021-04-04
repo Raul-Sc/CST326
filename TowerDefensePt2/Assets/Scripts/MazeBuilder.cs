@@ -480,7 +480,7 @@ public class MazeBuilder : MonoBehaviour
         walls.Clear();
     }
 
-    public void BuildMaze(int newSize)
+    public void BuildMazeAndPaths(int newSize)
     {
         sizeOfMaze = newSize;
         UnityEngine.Random.InitState(4);
@@ -566,3 +566,28 @@ public class MazeBuilder : MonoBehaviour
     }
 
 }
+/*
+ 
+Class MazeBuilder:
+  Additional Classes:
+        //character array representation
+        Maze() // builds maze in a char board[] with char being 0-9 A-F representing diff wall combos of a square
+        DisJointSet() // builds maze by uniting sets of squares
+        //visual representation
+        Square() // Square object to represent board[] elements
+
+    Members:
+     GameObject mazeSquare;
+     List<Vector3> bfsPath;
+     List<Vector3> seekPath;
+     int sizeOfMaze = 3;
+     List<GameObject> walls;
+    Functions:
+        AddSquare()// Renders Square object in unity
+        BFS()   //finds fastest path to exit aka Breadth First Search Algorithim
+        Seek()  //finds exit by prioritizing going right and down
+        ClearWalls()    // clears walls in order to load a new maze
+        BuildMazeAndPaths() // Builds the Maze and finds the paths
+ */
+
+

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    int size = 1;
+    int size = 20;
     Enemy[] pawns;
     public GameObject enemy;
     // Start is called before the first frame update
@@ -23,7 +23,7 @@ public class EnemyManager : MonoBehaviour
         {
             GameObject temp = Instantiate(enemy, transform.position, Quaternion.identity);
             pawns[i] = temp.GetComponent<Enemy>();
-            pawns[i].speed = 1;
+            pawns[i].speed = 5;
             pawns[i].myPath = maze.seekPath;
             pawns[i].MoveToSpawn();
             yield return new WaitForSeconds(2);

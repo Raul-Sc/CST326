@@ -19,7 +19,7 @@ public class Game : MonoBehaviour
         if (mazeManager != null)
         {
             maze = mazeManager.GetComponent<MazeBuilder>();
-            maze.BuildMaze(sizeOfMaze);
+            maze.BuildMazeAndPaths(sizeOfMaze);
         }
         if (cam != null)
             cam.PositionToMaze(sizeOfMaze, maze.transform);
@@ -44,7 +44,7 @@ public class Game : MonoBehaviour
             loadNextLevel = false;
             maze.ClearWalls();
             sizeOfMaze += 2;
-            maze.BuildMaze(sizeOfMaze);
+            maze.BuildMazeAndPaths(sizeOfMaze);
             cam.PositionToMaze(sizeOfMaze, maze.transform);
 
         }

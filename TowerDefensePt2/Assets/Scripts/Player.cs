@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public int purse;
-    readonly int damage = 20;
+    readonly int damage = 38;
     Text purseUI;
 
     public GameObject tower;

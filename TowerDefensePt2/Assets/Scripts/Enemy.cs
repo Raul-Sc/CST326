@@ -4,41 +4,34 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public MazeBuilder maze;
-    List<Vector3> myPath;
+ 
+    public List<Vector3> myPath;
     int index = 1;
 
     public float speed = 1f;
     public int health = 100;
     int bounty = 3;
-
+    bool beginMove = false;
     public bool smart = false;
 
-    private void Start()
-    {
-        myPath = maze.seekPath;
-        if (smart)
-            myPath = maze.bfsPath;
-        if (myPath != null)
-        { 
-            MoveToSpawn();
-        }
-    }
     void Update()
     {
-        if (index < myPath.Count)
+        if (beginMove == true)
         {
-            Move();
+            if (index < myPath.Count)
+            {
+                Move();
+            }
+            if (health <= 0 || index == myPath.Count)
+                Destroy(gameObject);
         }
-        if (health <= 0)
-            Destroy(gameObject);
-
     }
-    void MoveToSpawn()
+    public void MoveToSpawn()
     {
         transform.position = myPath[0];
+        beginMove = true;
     }
-    private void Move()
+    void Move()
     {
         float step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, myPath[index], step);

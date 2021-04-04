@@ -8,6 +8,8 @@ public class MazeBuilder : MonoBehaviour
     public GameObject mazeSquare;
     public List<Vector3> bfsPath;
     public List<Vector3> seekPath;
+    public int sizeOfMaze = 3;
+    public List<GameObject> walls;
 
     public class DisJoint
     {
@@ -221,15 +223,16 @@ public class MazeBuilder : MonoBehaviour
     {
         Square add = new Square();
         GameObject temp = Instantiate(mazeSquare, new Vector3(x, y, 0), Quaternion.identity);
+        walls.Add(temp);
         Renderer leftWall = temp.transform.GetChild(0).GetComponent<Renderer>();
-        Renderer toptWall = temp.transform.GetChild(1).GetComponent<Renderer>();
-        Renderer righttWall = temp.transform.GetChild(2).GetComponent<Renderer>();
+        Renderer topWall = temp.transform.GetChild(1).GetComponent<Renderer>();
+        Renderer rightWall = temp.transform.GetChild(2).GetComponent<Renderer>();
         Renderer bottomWall = temp.transform.GetChild(3).GetComponent<Renderer>();
 
         if (ch == '0') { add.left = add.right = add.top = add.bottom = false; }
         else if (ch == '1') {
             add.left = add.top = add.bottom = false; add.right = true;
-            righttWall.enabled = true;
+            rightWall.enabled = true;
         }
         else if (ch == '2') {
             add.left = add.right = add.top = false; add.bottom = true;
@@ -237,7 +240,7 @@ public class MazeBuilder : MonoBehaviour
         }
         else if (ch == '3') {
             add.left = add.top = false; add.right = add.bottom = true;
-            righttWall.enabled = bottomWall.enabled = true;
+            rightWall.enabled = bottomWall.enabled = true;
         }
         else if (ch == '4') {
             add.right = add.top = add.bottom = false; add.left = true;
@@ -245,7 +248,7 @@ public class MazeBuilder : MonoBehaviour
         }
         else if (ch == '5') {
             add.top = add.bottom = false; add.left = add.right = true;
-            leftWall.enabled = righttWall.enabled = true;
+            leftWall.enabled = rightWall.enabled = true;
         }
         else if (ch == '6') {
             add.right = add.top = false; add.left = add.bottom = true;
@@ -253,47 +256,88 @@ public class MazeBuilder : MonoBehaviour
         }
         else if (ch == '7') {
             add.top = false; add.left = add.right = add.bottom = true;
-            leftWall.enabled = righttWall.enabled = bottomWall.enabled = true;
+            leftWall.enabled = rightWall.enabled = bottomWall.enabled = true;
         }
         else if (ch == '8') {
             add.left = add.right = add.bottom = false; add.top = true;
-            toptWall.enabled = true;
+            topWall.enabled = true;
         }
         else if (ch == '9') {
             add.left = add.bottom = false; add.top = add.right = true;
-            toptWall.enabled = righttWall.enabled = true;
+            topWall.enabled = rightWall.enabled = true;
         }
         else if (ch == 'A' || ch == 'a')
         {
             add.left = add.right = false; add.top = add.bottom = true;
-            toptWall.enabled = bottomWall.enabled = true;
+            topWall.enabled = bottomWall.enabled = true;
         }
         else if (ch == 'B' || ch == 'b')
         {
             add.left = false; add.right = add.top = add.bottom = true;
-            righttWall.enabled = toptWall.enabled = bottomWall.enabled = true;
+            rightWall.enabled = topWall.enabled = bottomWall.enabled = true;
         }
         else if (ch == 'C' || ch == 'c')
         {
             add.right = add.bottom = false; add.left = add.top = true;
-            leftWall.enabled = toptWall.enabled = true;
+            leftWall.enabled = topWall.enabled = true;
         }
         else if (ch == 'D' || ch == 'd')
         {
             add.left = add.right = add.top = true; add.bottom = false;
-            leftWall.enabled = righttWall.enabled = toptWall.enabled = true;
+            leftWall.enabled = rightWall.enabled = topWall.enabled = true;
         }
         else if (ch == 'E' || ch == 'e')
         {
             add.right = false; add.left = add.top = add.bottom = true;
-            leftWall.enabled = toptWall.enabled = bottomWall.enabled = true;
+            leftWall.enabled = topWall.enabled = bottomWall.enabled = true;
         }
         else if (ch == 'F' || ch == 'f')
         {
             add.left = add.right = add.top = add.bottom = true;
-            leftWall.enabled = toptWall.enabled = righttWall.enabled = bottomWall.enabled = true;
+            leftWall.enabled = topWall.enabled = rightWall.enabled = bottomWall.enabled = true;
+        }
+        //*** Tag LandMarks for tower Placement
+        if(leftWall.enabled == true)
+        {
+            for (int i = 0; i < leftWall.transform.childCount; i++)
+                leftWall.transform.GetChild(i).tag = "Land";
+        }
+        else
+        {
+            for (int i = 0; i < leftWall.transform.childCount; i++)
+                leftWall.transform.GetChild(i).gameObject.layer = 2;
         }
 
+        if ( topWall.enabled == true)
+        {
+            for (int i = 0; i < topWall.transform.childCount; i++)
+                topWall.transform.GetChild(i).tag = "Land";
+        }
+        else
+        {
+            for (int i = 0; i < topWall.transform.childCount; i++)
+               topWall.transform.GetChild(i).gameObject.layer = 2;
+        }
+        if (rightWall.enabled == true)
+        {
+            for (int i = 0; i < rightWall.transform.childCount; i++)
+                rightWall.transform.GetChild(i).tag = "Land";
+        }
+        else
+        {
+            for (int i = 0; i < rightWall.transform.childCount; i++)
+                rightWall.transform.GetChild(i).gameObject.layer = 2;
+        }
+        if (bottomWall.enabled == true)
+        {
+            for (int i = 0; i < bottomWall.transform.childCount; i++)
+                bottomWall.transform.GetChild(i).tag = "Land";
+        }
+        else
+        {
+            for (int i = 0; i < bottomWall.transform.childCount; i++)
+                bottomWall.transform.GetChild(i).gameObject.layer = 2;
+        }
         maze.Add(add);
     }
     //Breadth First Search algorithim 
@@ -429,11 +473,18 @@ public class MazeBuilder : MonoBehaviour
             }
         }
     }
-
-    public void Main()
+    public void ClearWalls()
     {
+        for (int i = 0; i < walls.Count; i++)
+            Destroy(walls[i]);
+        walls.Clear();
+    }
+
+    public void BuildMaze(int newSize)
+    {
+        sizeOfMaze = newSize;
         UnityEngine.Random.InitState(4);
-        int n = 100;
+        int n = sizeOfMaze;
         Maze test = new Maze(n);
         test.MakeMaze();
         List<Square> maze = new List<Square>();
@@ -456,10 +507,10 @@ public class MazeBuilder : MonoBehaviour
 
         int size = maze.Count;
         int[] parent = new int[size];
-        BFS(maze, parent, size);
+        BFS(maze, parent, size);//find array indexes to creat path
 
         List<int> seek = new List<int>();
-        Seek(maze, seek, size);
+        Seek(maze, seek, size);//find array  indexes 
 
         List<int> path = new List<int>();
         n = size - 1;
@@ -471,7 +522,11 @@ public class MazeBuilder : MonoBehaviour
             n = parent[n];
         }
 
-        print("BFS AKA FASTEST : " + path.Count + '\n');
+        //-------------------------------------------CREATH PATHS ------------------------------------------------------
+        Vector3 startingLine = new Vector3(transform.position.x -2, transform.position.y, transform.position.z);
+        Vector3 finishline = new Vector3(transform.position.x + (2*sizeOfMaze), transform.position.y - (2*sizeOfMaze) + 2, transform.position.z);
+        //print("BFS AKA FASTEST : " + path.Count + '\n');
+        bfsPath.Add(startingLine);
         string coords = "";
         n = (int)Mathf.Sqrt(maze.Count);
         for (int i = path.Count - 1; i >= 0; i--)
@@ -483,9 +538,14 @@ public class MazeBuilder : MonoBehaviour
             bfsPath.Add(coordinate);
             coords +="(" + x + ", " + y + ")\n";
         }
+        bfsPath.Add(finishline);
         //print(coords);
         coords = "";
-        print("SEEK AKA Meduim : " + seek.Count + '\n');
+
+
+
+        //print("SEEK AKA Meduim : " + seek.Count + '\n');
+        seekPath.Add(startingLine);
         for (int i = 0; i < seek.Count; i++)
         {
             float x = 2* ( (seek[i] + n) % n );
@@ -498,14 +558,11 @@ public class MazeBuilder : MonoBehaviour
         float lx = 2 * (n - 1); float ly = (transform.position.y - 2 * (n - 1));
         Vector3 excoordinate = new Vector3(lx, ly, transform.position.z);
         seekPath.Add(excoordinate);
+        seekPath.Add(finishline);
         //print(coords);
-       // print("MAZE \n\n");
-        //test.PrintBoard();
+        //print("MAZE \n\n");
+        //test.PrintBoard(); 
 
-    }
-    private void Awake()
-    {
-        Main();
     }
 
 }

@@ -210,10 +210,12 @@ public class MazeBuilder : MonoBehaviour
 
     public class Square
     {
+        //walls
         public bool left;
         public bool right;
         public bool top;
         public bool bottom;
+
         public void SetLeft(bool b) { left = b; }
         public void SetRight(bool b) { right = b; }
         public void SetTop(bool b) { top = b; }
@@ -573,6 +575,15 @@ Class MazeBuilder:
         //character array representation
         Maze() // builds maze in a char board[] with char being 0-9 A-F representing diff wall combos of a square
         DisJointSet() // builds maze by uniting sets of squares
+
+        ex start: with 5 sets {[]} {[]} {[]} {[]} {[]}
+        unite a piar and repeat till one set left
+        4 sets {[][]}{[]}{[]}{[]}
+        3 sets {[][]}{[][]}{[]}
+        2 sets {[][][][]}{[]}
+        1 sets {[][][][][][]}
+        
+
         //visual representation
         Square() // Square object to represent board[] elements
 

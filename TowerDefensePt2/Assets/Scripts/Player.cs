@@ -51,7 +51,9 @@ public class Player : MonoBehaviour
     /*
     class Player
         functions:
-        shoot()// Shots a ray if enemy hit, try and collect our bounty
+        shoot()// Shots a ray
+                if enemy hit, try and collect our bounty
+                if land hit, if enough money buy and place laser tower
 
         Data Members
         int purse;//how much money a player gets from collectiing bounties

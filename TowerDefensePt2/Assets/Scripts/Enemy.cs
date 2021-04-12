@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class Enemy : MonoBehaviour
     bool beginMove = false;
     public bool smart = false;
 
+    public UnityEvent DeathEvent;
+
     void Update()
     {
         if (beginMove == true)
@@ -23,7 +26,10 @@ public class Enemy : MonoBehaviour
                 Move();
             }
             if (health <= 0 || index == myPath.Count)
+            {
+                DeathEvent.Invoke();
                 Destroy(gameObject);
+            }
         }
     }
     public void MoveToSpawn()

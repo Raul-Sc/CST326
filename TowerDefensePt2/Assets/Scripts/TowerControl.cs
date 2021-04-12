@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class TowerControl : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<Enemy> targets;
+    private void OnTriggerEnter(Collider other)
     {
+        Enemy newtarget = other.GetComponent<Enemy>();
+        if (newtarget != null)
+        {
+            newtarget.DeathEvent.AddListener(delegate { RemoveTarget(newtarget); });
+            targets.Add(newtarget);
+        }
         
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerExit(Collider other)
     {
+        Enemy oldtarget = other.GetComponent<Enemy>();
+        if (oldtarget != null)
+            RemoveTarget(oldtarget);
         
+    }
+    void RemoveTarget(Enemy target)
+    {
+        targets.Remove(target);
     }
 }

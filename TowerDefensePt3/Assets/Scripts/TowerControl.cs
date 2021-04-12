@@ -41,7 +41,6 @@ public class TowerControl : MonoBehaviour
     {
         if (targets.Count > 0)
         {
-            currentTarget = targets[0];
             Attack();
         }
         if (targets.Count == 0)

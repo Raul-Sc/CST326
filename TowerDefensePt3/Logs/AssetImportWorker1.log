@@ -1797,3 +1797,73 @@ System memory in use after: 213.1 MB.
 Unloading 65 unused Assets to reduce memory usage. Loaded Objects now: 2892.
 Total: 7.343211 ms (FindLiveObjects: 0.697749 ms CreateObjectMapping: 0.252370 ms MarkObjects: 3.198478 ms  DeleteObjects: 3.191396 ms)
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004488 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.44 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.265 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2356 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 216.9 MB.
+System memory in use after: 213.4 MB.
+
+Unloading 65 unused Assets to reduce memory usage. Loaded Objects now: 2894.
+Total: 7.044248 ms (FindLiveObjects: 0.858679 ms CreateObjectMapping: 0.222265 ms MarkObjects: 2.670053 ms  DeleteObjects: 3.287228 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 1177.923119 seconds.
+  path: Assets/Prefabs/TowerBase.prefab
+  artifactKey: Guid(067ce05348fcc4756b4498e433f0d955) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/TowerBase.prefab using Guid(067ce05348fcc4756b4498e433f0d955) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b84aaa16d5f738337dcda9f2b40e2c84') in 0.134640 seconds
+  Import took 0.142223 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001383 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.62 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.209 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.44 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2356 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 217.2 MB.
+System memory in use after: 213.7 MB.
+
+Unloading 66 unused Assets to reduce memory usage. Loaded Objects now: 2897.
+Total: 7.123858 ms (FindLiveObjects: 0.886536 ms CreateObjectMapping: 0.674417 ms MarkObjects: 2.616216 ms  DeleteObjects: 2.944777 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 234.852075 seconds.
+  path: Assets/Prefabs/Effect.prefab
+  artifactKey: Guid(4c78b7e0cb6ea4be89ba0862bde042ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Effect.prefab using Guid(4c78b7e0cb6ea4be89ba0862bde042ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1db7cb44cfefec07f4fe450e20f050b9') in 0.065898 seconds
+  Import took 0.071748 seconds .
+

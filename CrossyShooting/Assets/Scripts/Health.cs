@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float health = 100;
+    public float life = 100;
 }
 /*
  class Health
-    Data members
+    Data members:
+
         float health;
  */

@@ -6,21 +6,31 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     Slider slider;
-    Health life;
+    Health health;
     private void Awake()
     {
         slider = transform.GetComponent<Slider>();
-        life = transform.GetComponentInParent<Health>();
-        if(life != null)
-        {
-            print(life.health);
-        }
+        health = transform.GetComponentInParent<Health>();
+       
 
     }
     private void Update()
     {
-        if(life != null)
-            slider.value = life.health;
+        if(health != null)
+            slider.value = health.life;
     }
+    /*
+     class HealthBar
+        Data members:
+
+                Slider slider;
+                Health health;
+         Functions:
+
+                Awake()// get parent health component
+                Update()//update bar to equal life left
+
+            
+     */
 
 }

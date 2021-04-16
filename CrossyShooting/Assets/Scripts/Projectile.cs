@@ -20,12 +20,14 @@ public class Projectile : MonoBehaviour
     }
 }
 /*
- Class Projectile
-    Data Members
+Class Projectile
+    Data Members:
+
         float damage
         float speed
 
-     Functions
+     Functions:
+
         Move()
 
 

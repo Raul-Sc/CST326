@@ -8,10 +8,10 @@ public class Gun : MonoBehaviour
     int magSize = 10;
     //float fireRate = 1f;
 
-    void Fire()
+    public void Fire()
     {
         if (magSize>0) {
-            Instantiate(bullet, transform.position, Quaternion.identity);
+            Instantiate(bullet, transform.position,transform.rotation);
             magSize--;
           }
 
@@ -26,21 +26,20 @@ public class Gun : MonoBehaviour
         {
             Reload();
         }
-        if (Input.GetKeyDown("space"))
-        {
-            Fire();
-        }
     }
 }
 /*
 Class Gun
-    Data Members
+    Data Members:
     
-        Projectile bullet;
-        Int magSize;
+        GameObject bullet;
+        int magSize;
         float fireRate;
-        bool empty 
-    Functions
+        bool empty
+
+    Functions:
+
+        Update()//auto reload 
         Fire()
         Reload()
         

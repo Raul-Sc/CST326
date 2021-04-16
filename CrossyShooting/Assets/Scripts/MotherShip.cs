@@ -4,24 +4,32 @@ using UnityEngine;
 
 public class MotherShip : MonoBehaviour
 {
-    [SerializeField] GameObject Enemy;
+    [SerializeField] GameObject enemy;
+    List<Enemy> pawns;
+    private void Awake()
+    {
+        pawns = new List<Enemy>();
+    }
     void Spawn()
     {
-        Instantiate(Enemy, transform.position, Quaternion.identity);
+       
+        GameObject temp =  Instantiate(enemy, transform.position, Quaternion.identity);
+        pawns.Add(temp.GetComponent<Enemy>());
+
+    
     }
     private void Start()
     {
         Spawn();
+        pawns[0].Shoot();
     }
 }
 /*
  class MotherShip
     DataMembers:
+        GameObject enemy;
 
-        GameObject enemy
-        Enemy[]
-        Gun[]
-        Movement[]
+        List<Enemy> pawns;
 
      Functions:
         Spawn() 

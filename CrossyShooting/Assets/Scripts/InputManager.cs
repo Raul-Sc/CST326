@@ -4,36 +4,35 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    Movement movement;
-    Gun gun;
+    Player player;
 
-    private void Awake()
+    private void Start()
     {
-        movement = GetComponent<Movement>();
-        gun = transform.GetComponentInChildren<Gun>();
+      player = GetComponent<Player>();
+  
     }
     private void Update()
     {
         //transform.position = parent.position;
         if (Input.GetKey(KeyCode.D))
         {
-            movement.MoveRight();
+            player.MoveRight();
         }
         if (Input.GetKey(KeyCode.A))
         {
-            movement.MoveLeft();
+            player.MoveLeft();
         }
         if (Input.GetKey(KeyCode.W))
         {
-            movement.MoveFoward();
+            player.MoveFoward();
         }
         if (Input.GetKey(KeyCode.S))
         {
-            movement.MoveBack();
+            player.MoveBack();
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            gun.Fire();
+            player.Shoot();
         }
     }
 }

@@ -5,12 +5,22 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     [SerializeField] GameObject bullet;
-    int magSize = 10;
+    ParticleSystem spark;
+    Light flash;
+    int magSize = 100;
     //float fireRate = 1f;
-
+    private void Awake()
+    {
+        spark = GetComponentInChildren<ParticleSystem>();
+        flash = GetComponentInChildren<ParticleSystem>().GetComponentInChildren<Light>();
+        flash.enabled = false;
+    }
     public void Fire()
     {
         if (magSize>0) {
+            flash.enabled = true;
+            spark.Play();
+            flash.enabled = false;
             Instantiate(bullet, transform.position,transform.rotation);
             magSize--;
           }
@@ -31,17 +41,17 @@ public class Gun : MonoBehaviour
 /*
 Class Gun
     Data Members:
-    
+
         GameObject bullet;
+        ParticleSystem flash;
         int magSize;
         float fireRate;
-        bool empty
 
     Functions:
 
-        Update()//auto reload 
-        Fire()
-        Reload()
+        Update();//auto reload 
+        Fire();
+        Reload();
         
 
     

@@ -6,10 +6,12 @@ public class Player : MonoBehaviour
 {
     Movement movement;
     Gun gun;
+    public float mySpeed = 5f;
 
     private void Awake()
     {
         movement = GetComponent<Movement>();
+        movement.speed = mySpeed;
         gun = GetComponentInChildren<Gun>();
     }
     public void MoveLeft()
@@ -38,6 +40,7 @@ public class Player : MonoBehaviour
     Data Members:
         Movement movement;
         Gun gun;
+        float mySpeed;
 
     Functions:
 

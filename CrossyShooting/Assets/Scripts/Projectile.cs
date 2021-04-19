@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    public float damage = 100f;
-    public float speed = 10f;
+   // public float damage = 100f;
+    float speed = 15f;
 
 
     void Move()
@@ -23,12 +23,12 @@ public class Projectile : MonoBehaviour
 Class Projectile
     Data Members:
 
-        float damage
-        float speed
+        float damage;
+        float speed;
 
      Functions:
 
-        Move()
+        Move();
 
 
 

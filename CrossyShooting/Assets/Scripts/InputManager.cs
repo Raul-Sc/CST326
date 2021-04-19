@@ -18,15 +18,15 @@ public class InputManager : MonoBehaviour
         {
             player.MoveRight();
         }
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             player.MoveLeft();
         }
-        if (Input.GetKey(KeyCode.W))
+        else if (Input.GetKey(KeyCode.W))
         {
             player.MoveFoward();
         }
-        if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S))
         {
             player.MoveBack();
         }
@@ -44,7 +44,7 @@ class InputManager
         Movement movement;
     
     Functions:
-        Update()//listen for key presses and responed accordinally
+        Update(); //listen for key presses and responed accordinally
 */
 
       

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8130996647655423051}
   m_Layer: 0
   m_Name: TriggerMotherShip
-  m_TagString: Untagged
+  m_TagString: LandTrigger
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,7 +104,7 @@ Transform:
   m_GameObject: {fileID: 3279659386953979410}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 1, z: 15}
+  m_LocalScale: {x: 30, y: 1, z: 30}
   m_Children:
   - {fileID: 5332383789402308519}
   - {fileID: 5010025067138040784}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 5332383789402308518}
   m_Layer: 0
   m_Name: TriggerLand
-  m_TagString: Untagged
+  m_TagString: LandTrigger
   m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

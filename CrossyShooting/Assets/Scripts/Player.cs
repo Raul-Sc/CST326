@@ -6,10 +6,12 @@ public class Player : MonoBehaviour
 {
     Movement movement;
     Gun gun;
-    public float mySpeed = 5f;
+    float mySpeed = 6f;
+    [SerializeField] Health myHealth;
 
     private void Awake()
     {
+        GetComponent<Trigger>().PlayerHitEvent.AddListener(delegate { TakeDamage(); });
         movement = GetComponent<Movement>();
         movement.speed = mySpeed;
         gun = GetComponentInChildren<Gun>();
@@ -32,7 +34,23 @@ public class Player : MonoBehaviour
     }
     public void Shoot()
     {
-        gun.Fire();
+     
+        if(gun.magSize > 0)
+            gun.Fire();
+    }
+    public void Reload()
+    {
+        gun.Reload();
+    }
+    public void TakeDamage()
+    {
+
+        myHealth.life -= 34;
+        if (myHealth.life <= 0)
+        {
+            print("GAME OVER");
+            //Destroy(gameObject);
+        }
     }
 }
 /*

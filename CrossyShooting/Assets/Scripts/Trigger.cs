@@ -5,35 +5,66 @@ using UnityEngine.Events;
 
 public class Trigger : MonoBehaviour
 {
-    public UnityEvent TriggerEvent;
+    public UnityEvent LandTriggerEvent;
+    public UnityEvent MotherShipTriggerEvent;
     public UnityEvent HitEvent;
+    public UnityEvent PlayerHitEvent;
     private void OnTriggerEnter(Collider other)
     {
+
+        if (this.CompareTag("MotherShipTrigger"))
+        {
+            if (other.CompareTag("Player"))
+            {
+                MotherShipTriggerEvent.Invoke();
+                Destroy(this.gameObject);
+            }
+        }
         if (this.CompareTag("LandTrigger"))
         {
             if (other.CompareTag("Player"))
             {
-                TriggerEvent.Invoke();
+                LandTriggerEvent.Invoke();
             }
         }
             
         if (this.CompareTag("Enemy"))
         {
-            print(this.name + "with" + other.name);
             if (other.CompareTag("Projectile"))
             {
                 HitEvent.Invoke();
-                Destroy(other.gameObject);
+                
             }
         }
+        if (this.CompareTag("Player"))
+            if (other.CompareTag("Projectile"))
+            {
+                PlayerHitEvent.Invoke();
+            }
         if (this.CompareTag("Detection"))
         {
+            
             if (other.CompareTag("Player"))
             {
-                //GetComponentInParent<Enemy>().SetTarget(other.gameObject);
+
+               GetComponentInParent<Enemy>().SetTarget(other.gameObject);
             }
         }
+        if (other.CompareTag("Projectile") && this.transform.tag!= "Detection")
+            Destroy(other.gameObject);
             
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (this.CompareTag("Detection"))
+        {
+          
+            if (other.CompareTag("Player"))
+            {
+    
+                GetComponentInParent<Enemy>().SetTarget(other.gameObject);
+            }
+        }
     }
 
 }

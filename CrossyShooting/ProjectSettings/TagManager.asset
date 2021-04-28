@@ -9,6 +9,7 @@ TagManager:
   - Detection
   - LandTrigger
   - MotherShipTrigger
+  - Obsticle
   layers:
   - Default
   - TransparentFX

@@ -8,19 +8,19 @@ public class MotherShip : MonoBehaviour
     List<Enemy> pawns;
 
     
-    Quaternion SpawnRotation = Quaternion.Euler(0, 180, 0);
+    Quaternion SpawnRotation = Quaternion.Euler(0, 0, 0);
 
  
     private void Awake()
     {
         pawns = new List<Enemy>();
-        GetComponentInChildren<Trigger>().TriggerEvent.AddListener(delegate { Spawn(); });
+        GetComponentInChildren<Trigger>().MotherShipTriggerEvent.AddListener(delegate { Spawn(); });
     }
     void Spawn()
     {
-       
-        GameObject temp =  Instantiate(enemy, transform.position, SpawnRotation);
+        GameObject temp = Instantiate(enemy, new Vector3(transform.position.x, 2, transform.position.z), SpawnRotation) ;
         pawns.Add(temp.GetComponent<Enemy>());
+        pawns[pawns.Count - 1].type = Random.Range(1, 3);
         pawns[pawns.Count -1].DeathEvent.AddListener(delegate { PawnDown(pawns[pawns.Count-1]); });
 
     

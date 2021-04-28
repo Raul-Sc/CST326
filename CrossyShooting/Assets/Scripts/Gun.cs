@@ -7,7 +7,7 @@ public class Gun : MonoBehaviour
     [SerializeField] GameObject bullet;
     ParticleSystem spark;
     Light flash;
-    int magSize = 100;
+    public int magSize = 30;
     //float fireRate = 1f;
     private void Awake()
     {
@@ -17,7 +17,8 @@ public class Gun : MonoBehaviour
     }
     public void Fire()
     {
-        if (magSize>0) {
+        
+        if (magSize > 0) {
             flash.enabled = true;
             spark.Play();
             flash.enabled = false;
@@ -26,17 +27,12 @@ public class Gun : MonoBehaviour
           }
 
     }
-    void Reload()
+    public void Reload()
     {
-        print("NEED TO RELOAD!");
+        print("Reload");
+        magSize = 30;
     }
-    private void Update()
-    {
-        if (magSize <= 0)
-        {
-            Reload();
-        }
-    }
+  
 }
 /*
 Class Gun

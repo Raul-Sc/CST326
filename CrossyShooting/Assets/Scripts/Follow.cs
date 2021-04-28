@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class Follow : MonoBehaviour
 {
-    [SerializeField] Transform target;
+    Transform target;
 
-    public float smoothSpeed = 0.125f;
-    Vector3 offset = new Vector3(1, 30, 4);
-
+    float smoothSpeed = 5f;
+    public Vector3 offset = new Vector3(1, 30, -1);
+    private void Awake()
+    {
+        target = GameObject.Find("PlayerChicken").GetComponent<Transform>();
+    }
     private void LateUpdate()
     {
         Vector3 targetPosition = target.position + offset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, targetPosition, smoothSpeed * Time.deltaTime);
         transform.position = smoothedPosition;
+  
     }
 }
 /*

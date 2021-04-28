@@ -8,9 +8,10 @@ public class Enemy : MonoBehaviour
     Movement movement;
     Gun gun;
     Health myHealth;
-    float speed = 3.5f;
-    
+    float speed = 3f;
 
+
+    public int type = 1;
     GameObject target = null;
 
     public UnityEvent DeathEvent;
@@ -39,9 +40,19 @@ public class Enemy : MonoBehaviour
     {
         movement.MoveBack();
     }
-    public void Shoot()
+    public void ShootTarget()
     {
-        gun.Fire();
+        RaycastHit hit;
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+    
+        if (Physics.Raycast(gun.transform.position, fwd, out hit))
+        {
+            Debug.DrawRay(gun.transform.position, fwd * 10, Color.blue);
+            if (hit.transform.CompareTag("Player"))
+                gun.Fire();
+        }
+        Debug.DrawRay(gun.transform.position, fwd * 10, Color.blue);
+
     }
     public void TakeDamage()
     {
@@ -55,31 +66,103 @@ public class Enemy : MonoBehaviour
     public void SetTarget(GameObject player)
     {
         target = player;
+
     }
-    void AlignWithTarget()
+ 
+    void MoveWithTarget()
     {
         if (target != null)
         {
+            float range = 1.55f;
             float horizontal = target.transform.position.x - transform.position.x;
             float vertical = target.transform.position.z - transform.position.z;
-            if (horizontal > 2f)
-                MoveRight();
-            else if (horizontal < -2f)
-                MoveLeft();
-            else if (vertical < -6f)
-                MoveBack();
-            else if (vertical > 2f)
-                MoveFoward();
+          
+            if(Mathf.Abs(vertical) > Mathf.Abs(horizontal))
+            {
+                if (vertical < -range)
+                {
+                    MoveBack();
+                }
+                else if (vertical > range)
+                    MoveFoward();
+            }
+            else
+            {
+                if (horizontal < -range)
+                    MoveLeft();
+                else if(horizontal  > range)
+                {
+                    MoveRight();
+                }
+            }
     
        
         
         }
     }
-    private void Update()
+    int changeDirections = 1;
+    void PaceLeftandRight()
     {
-        AlignWithTarget();
+        if (changeDirections == 1)
+            MoveLeft();
+        else
+            MoveRight();
+
+    }
+    void PaceBackandFoward()
+    {
+        if (changeDirections == 1)
+            MoveBack();
+        else
+            MoveFoward();
+
     }
 
+    private void FixedUpdate()
+    {
+
+      
+    }
+    private void Update()
+    {
+        if (target != null)
+        {
+            RaycastHit hit_target;
+            Vector3 dirTar = Vector3.Normalize(target.transform.position - this.transform.position);
+            if (Physics.Raycast(this.transform.position, dirTar, out hit_target))
+            {
+
+                Debug.DrawRay(this.transform.position, dirTar * hit_target.distance, Color.yellow);
+                if (hit_target.transform.CompareTag("Player"))
+                {
+                    MoveWithTarget();
+                    ShootTarget();
+                }
+                else
+                    target = null;
+            }
+            else
+                target = null;
+        }
+        RaycastHit hit;
+        Vector3 fwd = transform.TransformDirection(Vector3.forward);
+        if (Physics.Raycast(this.transform.position, fwd, out hit))
+        {
+            if (hit.transform.CompareTag("Obsticle") && hit.distance < 1)
+            {
+                changeDirections = 3 - changeDirections;
+
+            }
+        }
+        if (target == null)
+        {
+            if (type == 1)
+                PaceLeftandRight();
+            if (type == 2)
+                PaceBackandFoward();
+        }
+
+    }
 }
 /*
  class Enemy

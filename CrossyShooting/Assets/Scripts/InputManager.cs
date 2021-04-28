@@ -32,7 +32,12 @@ public class InputManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
+  
             player.Shoot();
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            player.Reload();
         }
     }
 }

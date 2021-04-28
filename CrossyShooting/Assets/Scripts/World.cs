@@ -8,13 +8,14 @@ public class World : MonoBehaviour
     [SerializeField] GameObject land;
     GameObject[] lands;
     Vector3 spawnPoint;
-
+  
 
     public int SIZE = 3;
 
     private void Awake()
     {
-
+        
+        
         GenerateWorld();
 
     }
@@ -22,7 +23,7 @@ public class World : MonoBehaviour
     {
         lands[i] = Instantiate(land, spawnPoint, Quaternion.identity);
         lands[i].transform.parent = gameObject.transform;
-        lands[i].GetComponentInChildren<Trigger>().TriggerEvent.AddListener(delegate { RemoveLand(i); });
+        lands[i].GetComponentInChildren<Trigger>().LandTriggerEvent.AddListener(delegate { RemoveLand(i); });
         spawnPoint += new Vector3(0, 0, land.transform.localScale.z);
     }
     void GenerateWorld()
@@ -40,7 +41,7 @@ public class World : MonoBehaviour
         lands[i].GetComponent<Land>().InfromMotherShip();
         Destroy(lands[i]);
         SpawnLand(i);
-
+  
     }
 
 

@@ -19,7 +19,7 @@ public class LoadChicken : MonoBehaviour
     {
         if (canMove)
         {
-            if (transform.position.x < 4.0)
+            if (transform.position.x < -1.0)
                 move.MoveRight();
             else
             {
@@ -35,7 +35,7 @@ public class LoadChicken : MonoBehaviour
     }
     IEnumerator Shoot()
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.2f);
         gun.Fire();
         StartCoroutine(LoadGame());
         
@@ -43,7 +43,7 @@ public class LoadChicken : MonoBehaviour
     IEnumerator Move()
     {
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(.5f);
         canMove = true;
 
     }

@@ -6,11 +6,20 @@ public class Player : MonoBehaviour
 {
     Movement movement;
     Gun gun;
+
     float mySpeed = 6f;
     [SerializeField] Health myHealth;
 
+
+    public bool canMoveLeft = true;
+    public bool canMoveRight = true;
+    public bool canMoveBack = true;
+    public bool canShoot = true;//while not in cover
+
+    public int score;
     private void Awake()
     {
+        score = 0;
         GetComponent<Trigger>().PlayerHitEvent.AddListener(delegate { TakeDamage(); });
         movement = GetComponent<Movement>();
         movement.speed = mySpeed;
@@ -18,11 +27,13 @@ public class Player : MonoBehaviour
     }
     public void MoveLeft()
     {
-        movement.MoveLeft();
+        if(canMoveLeft)
+            movement.MoveLeft();
     }
     public void MoveRight()
     {
-        movement.MoveRight();
+        if(canMoveRight)
+         movement.MoveRight();
     }
     public void MoveFoward()
     {
@@ -30,13 +41,13 @@ public class Player : MonoBehaviour
     }
     public void MoveBack()
     {
-        movement.MoveBack();
+        if(canMoveBack)
+            movement.MoveBack();
     }
     public void Shoot()
     {
-     
-        if(gun.magSize > 0)
-            gun.Fire();
+        if(canShoot)
+           gun.Fire();
     }
     public void Reload()
     {
@@ -48,9 +59,15 @@ public class Player : MonoBehaviour
         myHealth.life -= 34;
         if (myHealth.life <= 0)
         {
-            print("GAME OVER");
-            //Destroy(gameObject);
+            
+            transform.localScale = new Vector3(1, .1f, 1);
+            MoveBack();
+            GetComponentInParent<Game>().Restart();
         }
+    }
+    public void AddScore()
+    { 
+        score += 1;
     }
 }
 /*

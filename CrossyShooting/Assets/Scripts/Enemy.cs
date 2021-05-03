@@ -6,9 +6,12 @@ using UnityEngine.Events;
 public class Enemy : MonoBehaviour
 {
     Movement movement;
+    SoundManager soundFx;
     Gun gun;
+    bool canShoot = true;
     Health myHealth;
     float speed = 3f;
+   
 
 
     public int type = 1;
@@ -18,8 +21,8 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        soundFx = GetComponent<SoundManager>();
         myHealth = GetComponentInChildren<Health>();
-        GetComponent<Trigger>().HitEvent.AddListener(delegate { TakeDamage(); });
         movement = GetComponent<Movement>();
         movement.speed = speed;
         gun = GetComponentInChildren<Gun>();
@@ -40,6 +43,35 @@ public class Enemy : MonoBehaviour
     {
         movement.MoveBack();
     }
+    IEnumerator Shoot()
+    {
+        if (canShoot)
+        {
+            canShoot = false;
+            gun.Fire();
+            yield return new WaitForSeconds(1f);
+            canShoot = true;
+        }
+    }
+    public int TakeDamage()
+    {
+        soundFx.PlaySound("hit");
+        myHealth.life -= 34;
+        if (myHealth.life <= 0)
+        {
+            DeathEvent.Invoke();
+            Destroy(gameObject);
+            return 1;
+        }
+        return 0;
+    }
+
+    public void SetTarget(GameObject player)
+    {
+        target = player;
+
+    }
+
     public void ShootTarget()
     {
         RaycastHit hit;
@@ -49,23 +81,9 @@ public class Enemy : MonoBehaviour
         {
             Debug.DrawRay(gun.transform.position, fwd * 10, Color.blue);
             if (hit.transform.CompareTag("Player"))
-                gun.Fire();
+                StartCoroutine(Shoot());
         }
         Debug.DrawRay(gun.transform.position, fwd * 10, Color.blue);
-
-    }
-    public void TakeDamage()
-    {
-        myHealth.life -= 34;
-        if (myHealth.life <= 0)
-        {
-            DeathEvent.Invoke();
-            Destroy(gameObject);
-        }
-    }
-    public void SetTarget(GameObject player)
-    {
-        target = player;
 
     }
  
@@ -120,7 +138,8 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        if (gun.magSize <= 0)
+            gun.Reload();
       
     }
     private void Update()
@@ -179,11 +198,16 @@ public class Enemy : MonoBehaviour
         MoveRight();
         MoveFoward();
         MoveBack();
-        SetTarget();
-        AlignWithTarget();
-        Fire();
-
         TakeDamage();
+        SetTarget();
+
+        ShootTarget();
+        SetTarget();
+        MoveWithTarget();
+
+        PaceLeftandRight();
+        PaceBackandfoward();
+        
 
 
  */

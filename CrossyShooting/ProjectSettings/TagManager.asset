@@ -10,6 +10,7 @@ TagManager:
   - LandTrigger
   - MotherShipTrigger
   - Obsticle
+  - Gun
   layers:
   - Default
   - TransparentFX

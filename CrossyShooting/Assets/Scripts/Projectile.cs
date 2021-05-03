@@ -7,7 +7,6 @@ public class Projectile : MonoBehaviour
    // public float damage = 100f;
     float speed = 15f;
 
-
     void Move()
     {
 

@@ -8,13 +8,13 @@ public class World : MonoBehaviour
     [SerializeField] GameObject land;
     GameObject[] lands;
     Vector3 spawnPoint;
-  
-
+    [SerializeField] GameObject shredder;
+    Vector3 buffer;
     public int SIZE = 3;
 
     private void Awake()
     {
-        
+        buffer = new Vector3(0,0,land.transform.localScale.z/2);
         
         GenerateWorld();
 
@@ -35,12 +35,14 @@ public class World : MonoBehaviour
         {
             SpawnLand(i);
         }
+        shredder.transform.position = lands[0].transform.position - buffer;
     }
     void RemoveLand(int i)
     {
         lands[i].GetComponent<Land>().InfromMotherShip();
         Destroy(lands[i]);
         SpawnLand(i);
+        shredder.transform.position += 2*buffer;
   
     }
 

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   land: {fileID: 3279659386953979410, guid: 18f49da210fdd45fe884460869b0a07d, type: 3}
+  shredder: {fileID: 0}
   SIZE: 5
 --- !u!1 &2438399436844971170
 GameObject:
@@ -60,7 +61,7 @@ GameObject:
   m_Layer: 0
   m_Name: Shredder
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -72,7 +73,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2438399436844971170}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 5, z: -70}
+  m_LocalPosition: {x: 0, y: 10, z: -70}
   m_LocalScale: {x: 9, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 896486732078565225}
@@ -93,7 +94,13 @@ MonoBehaviour:
   LandTriggerEvent:
     m_PersistentCalls:
       m_Calls: []
+  MotherShipTriggerEvent:
+    m_PersistentCalls:
+      m_Calls: []
   HitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayerHitEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!65 &8217256549071449555

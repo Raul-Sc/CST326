@@ -1,0 +1,453 @@
+Using pre-set license
+
+ COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2020.2.2f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/home/Desktop/Spring-21/CST-326/GitHub/CST326/ChickenCoupe
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+53521
+Successfully changed project path to: /Users/home/Desktop/Spring-21/CST-326/GitHub/CST326/ChickenCoupe
+/Users/home/Desktop/Spring-21/CST-326/GitHub/CST326/ChickenCoupe
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 23.24 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.2.2f1 (068178b99f32)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.2.2f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/home/Desktop/Spring-21/CST-326/GitHub/CST326/ChickenCoupe/Assets
+GfxDevice: creating device client; threaded=0
+2021-04-30 09:00:31.603 Unity[60831:14766023] Color LCD preferred device: Intel(R) Iris(TM) Plus Graphics 640 (low power)
+2021-04-30 09:00:31.603 Unity[60831:14766023] Metal devices available: 1
+2021-04-30 09:00:31.603 Unity[60831:14766023] 0: Intel(R) Iris(TM) Plus Graphics 640 (low power)
+2021-04-30 09:00:31.603 Unity[60831:14766023] Using device Intel(R) Iris(TM) Plus Graphics 640 (low power)
+Initializing Metal device caps: Intel(R) Iris(TM) Plus Graphics 640
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2020.2.2f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2020.2.2f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2020.2.2f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56831
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2020.2.2f1/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2020.2.2f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2020.2.2f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.009907 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 25.20 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.245 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001232 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for OSXStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 0.24 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.031 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/Unity/Hub/Editor/2020.2.2f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
+Refreshing native plugins compatible for Editor in 0.30 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1102 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 113.8 MB.
+System memory in use after: 113.8 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1544.
+Total: 3.041419 ms (FindLiveObjects: 0.301619 ms CreateObjectMapping: 0.112386 ms MarkObjects: 2.506099 ms  DeleteObjects: 0.118154 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cbe7091bf8c4b1372e0d3f1be8d9e072') in 1.397498 seconds
+  Import took 1.401236 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 25.883297 seconds.
+  path: Assets/GunTexture.mat
+  artifactKey: Guid(6554e6a05aebc41b99226b78de9b8c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GunTexture.mat using Guid(6554e6a05aebc41b99226b78de9b8c75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9c1fa996f13c482d51327a23cd91954') in 1.262838 seconds
+  Import took 1.265748 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 92.874602 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b817dd5c7b21d2c91b540943d1a73e24') in 0.035416 seconds
+  Import took 0.038188 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 45.766569 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9affa8d5145299f5357bf177dfde8eae') in 0.050182 seconds
+  Import took 0.053218 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 59.238132 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3d96ea9e84dd8e7d69ccc6c1d502f4ad') in 0.050729 seconds
+  Import took 0.053516 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 145.584750 seconds.
+  path: Assets/New Material.mat
+  artifactKey: Guid(64656b5d0cca64d45ae43d231e4f89bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Material.mat using Guid(64656b5d0cca64d45ae43d231e4f89bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2484f845c6c89d6740ac068eaa9b67b1') in 0.251599 seconds
+  Import took 0.254216 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 34.086839 seconds.
+  path: Assets/New Material.mat
+  artifactKey: Guid(64656b5d0cca64d45ae43d231e4f89bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Material.mat using Guid(64656b5d0cca64d45ae43d231e4f89bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4417645d084224309fa5502688f9a962') in 0.295629 seconds
+  Import took 0.298308 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.496290 seconds.
+  path: Assets/New Material.mat
+  artifactKey: Guid(64656b5d0cca64d45ae43d231e4f89bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Material.mat using Guid(64656b5d0cca64d45ae43d231e4f89bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e7fcd8fe449aa9de2561f95bea358a37') in 0.297694 seconds
+  Import took 0.300953 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.712783 seconds.
+  path: Assets/New Material.mat
+  artifactKey: Guid(64656b5d0cca64d45ae43d231e4f89bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Material.mat using Guid(64656b5d0cca64d45ae43d231e4f89bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c0802eda7106e6d6fa842dda1c488d3') in 0.019169 seconds
+  Import took 0.022978 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 87.283349 seconds.
+  path: Assets/New Material.mat
+  artifactKey: Guid(64656b5d0cca64d45ae43d231e4f89bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Material.mat using Guid(64656b5d0cca64d45ae43d231e4f89bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'adfe448e1c398acf909bfe75cc973feb') in 0.018405 seconds
+  Import took 0.021335 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 11.439459 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8776d319d0510cf08963679d9dc1313') in 0.040555 seconds
+  Import took 0.044314 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.538883 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47c89cc143a4d0349c2cfe1373402911') in 0.063572 seconds
+  Import took 0.066938 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002419 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47c89cc143a4d0349c2cfe1373402911') in 0.043505 seconds
+  Import took 0.046165 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.298925 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4a4ed501c34bbbcfcad0470580b012a') in 0.050526 seconds
+  Import took 0.053416 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.530365 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00979515d0c10a5c84f81903dddcddbe') in 0.029569 seconds
+  Import took 0.032493 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 15.862986 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a62d98836ae863aeeb2bfb8448d91c0b') in 0.040689 seconds
+  Import took 0.044090 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.711177 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb6e949f6088b6ed697989f7094a2dbe') in 0.014274 seconds
+  Import took 0.016432 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012966 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eb6e949f6088b6ed697989f7094a2dbe') in 0.012059 seconds
+  Import took 0.016412 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.365531 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3a4d6fc00c41d1f11303e4590bb39daf') in 0.031662 seconds
+  Import took 0.035600 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.290159 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '973e79652aac76695a38572ebb9e6d7d') in 0.013290 seconds
+  Import took 0.016083 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.010080 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '973e79652aac76695a38572ebb9e6d7d') in 0.019273 seconds
+  Import took 0.023282 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 235.261275 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c620d662ecde380c4e5bfaf14f19dea0') in 0.011659 seconds
+  Import took 0.013916 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.871443 seconds.
+  path: Assets/New Material.mat
+  artifactKey: Guid(64656b5d0cca64d45ae43d231e4f89bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Material.mat using Guid(64656b5d0cca64d45ae43d231e4f89bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8096e80066ca8cca35865fdc0db2fe33') in 0.015480 seconds
+  Import took 0.019658 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 22.157683 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a03697526bf7c6d548c4936c167bc0cf') in 0.028795 seconds
+  Import took 0.032121 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 79.647656 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ceaa9613f0a3e915d20b96f9a7c47d91') in 0.030516 seconds
+  Import took 0.034049 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002703 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ceaa9613f0a3e915d20b96f9a7c47d91') in 0.020953 seconds
+  Import took 0.025220 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 157.180111 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e1eaa653ca79c96850e3fae32c2de71') in 0.059671 seconds
+  Import took 0.062329 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003571 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5e1eaa653ca79c96850e3fae32c2de71') in 0.041481 seconds
+  Import took 0.045419 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 124.600626 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7c70864ab8ba619d379600f99c7366a') in 0.007382 seconds
+  Import took 0.010134 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.013470 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7c70864ab8ba619d379600f99c7366a') in 0.007431 seconds
+  Import took 0.009686 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 52.258581 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b1a98475cf8f46716c4d0459d0ed039') in 0.019481 seconds
+  Import took 0.023110 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002059 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5b1a98475cf8f46716c4d0459d0ed039') in 0.008938 seconds
+  Import took 0.013346 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.833066 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5262db47785c00f8a8869962756d5b6') in 0.010259 seconds
+  Import took 0.014337 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.006260 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a5262db47785c00f8a8869962756d5b6') in 0.042856 seconds
+  Import took 0.046097 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.783075 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8641d7ba73d8069f260db3cb85fb93da') in 0.009924 seconds
+  Import took 0.012581 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012439 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8641d7ba73d8069f260db3cb85fb93da') in 0.011910 seconds
+  Import took 0.014771 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.188915 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '864c238dc236b6f13481160a5993cc37') in 0.010756 seconds
+  Import took 0.013016 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.017485 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '864c238dc236b6f13481160a5993cc37') in 0.008453 seconds
+  Import took 0.011609 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.923858 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ace764583a1de5656c2708bdf43db8e2') in 0.010704 seconds
+  Import took 0.013273 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.013278 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ace764583a1de5656c2708bdf43db8e2') in 0.008981 seconds
+  Import took 0.011230 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.169462 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27cc17f00ad1eaebb499b206a3991389') in 0.010828 seconds
+  Import took 0.013289 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.021318 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27cc17f00ad1eaebb499b206a3991389') in 0.008078 seconds
+  Import took 0.010672 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.377766 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44114a128ecc8a5a1ab6e2ddbff49272') in 0.009935 seconds
+  Import took 0.012092 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.014835 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '44114a128ecc8a5a1ab6e2ddbff49272') in 0.009572 seconds
+  Import took 0.012169 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.406382 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a256ceb7947fcef50fa05b044d0269d5') in 0.139688 seconds
+  Import took 0.142448 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 16.136108 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4c7f456466aebfb304f49e4f98a365e') in 0.031882 seconds
+  Import took 0.035335 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000565 seconds.
+  path: Assets/Blocky-PPSH41.png
+  artifactKey: Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blocky-PPSH41.png using Guid(7db58485681d14453ad6e12799c12f83) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f4c7f456466aebfb304f49e4f98a365e') in 0.015751 seconds
+  Import took 0.018970 seconds .
+

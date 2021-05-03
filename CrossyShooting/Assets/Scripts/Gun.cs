@@ -7,12 +7,16 @@ public class Gun : MonoBehaviour
     [SerializeField] GameObject bullet;
     ParticleSystem spark;
     Light flash;
-    public int magSize = 30;
+    SoundManager soundFx;
+    int cap = 7;
+    public int magSize;
     //float fireRate = 1f;
     private void Awake()
     {
+        magSize = cap;
         spark = GetComponentInChildren<ParticleSystem>();
         flash = GetComponentInChildren<ParticleSystem>().GetComponentInChildren<Light>();
+        soundFx = GetComponent<SoundManager>();
         flash.enabled = false;
     }
     public void Fire()
@@ -21,16 +25,26 @@ public class Gun : MonoBehaviour
         if (magSize > 0) {
             flash.enabled = true;
             spark.Play();
+            soundFx.PlaySound("shot");
             flash.enabled = false;
             Instantiate(bullet, transform.position,transform.rotation);
             magSize--;
           }
+        else
+            soundFx.PlaySound("empty");
+
 
     }
     public void Reload()
     {
-        print("Reload");
-        magSize = 30;
+        soundFx.PlaySound("reload");
+        magSize = 0;
+        StartCoroutine(Fill());
+    }
+    IEnumerator Fill()
+    {
+        yield return new WaitForSeconds(.2f);
+        magSize = cap;
     }
   
 }

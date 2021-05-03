@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6226748332955214481}
   - component: {fileID: 7726181414427445218}
   - component: {fileID: 1934423987507858319}
+  - component: {fileID: 6736884721789497263}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -140,6 +141,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myHealth: {fileID: 0}
+  canMoveLeft: 1
+  canMoveRight: 1
+  canMoveBack: 1
+  score: 0
 --- !u!54 &7726181414427445218
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -174,12 +179,25 @@ MonoBehaviour:
   MotherShipTriggerEvent:
     m_PersistentCalls:
       m_Calls: []
-  HitEvent:
+  PointEvent:
     m_PersistentCalls:
       m_Calls: []
   PlayerHitEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6736884721789497263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3201488292283039172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053722938519748148a8327111e4a3b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ruffle: {fileID: 8300000, guid: 1cada663ec90c43a5877413617b2f617, type: 3}
 --- !u!1001 &3201488291524850067
 PrefabInstance:
   m_ObjectHideFlags: 0

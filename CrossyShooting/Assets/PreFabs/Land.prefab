@@ -63,100 +63,12 @@ MonoBehaviour:
   MotherShipTriggerEvent:
     m_PersistentCalls:
       m_Calls: []
-  HitEvent:
+  PointEvent:
     m_PersistentCalls:
       m_Calls: []
   PlayerHitEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &927432639254367010
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5588887535098352640}
-  - component: {fileID: 6933509335394436159}
-  m_Layer: 0
-  m_Name: Border (3)
-  m_TagString: Obsticle
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5588887535098352640
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 927432639254367010}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -0.5}
-  m_LocalScale: {x: 1, y: 3, z: 0.05}
-  m_Children: []
-  m_Father: {fileID: 4714021632657218120}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6933509335394436159
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 927432639254367010}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &1990298847884502444
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5477425184383391241}
-  - component: {fileID: 5959251217601963927}
-  m_Layer: 0
-  m_Name: Border (2)
-  m_TagString: Obsticle
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5477425184383391241
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990298847884502444}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0.5}
-  m_LocalScale: {x: 1, y: 3, z: 0.05}
-  m_Children: []
-  m_Father: {fileID: 4714021632657218120}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5959251217601963927
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990298847884502444}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2233801805202421574
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,7 +81,7 @@ GameObject:
   - component: {fileID: 7014789035020309791}
   - component: {fileID: 4978721686353246148}
   m_Layer: 0
-  m_Name: Border
+  m_Name: LeftBorder
   m_TagString: Obsticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -220,7 +132,7 @@ MonoBehaviour:
   MotherShipTriggerEvent:
     m_PersistentCalls:
       m_Calls: []
-  HitEvent:
+  PointEvent:
     m_PersistentCalls:
       m_Calls: []
   PlayerHitEvent:
@@ -261,8 +173,6 @@ Transform:
   - {fileID: 5010025067138040784}
   - {fileID: 8223617083505988735}
   - {fileID: 7705676036721864974}
-  - {fileID: 5477425184383391241}
-  - {fileID: 5588887535098352640}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -411,7 +321,7 @@ MonoBehaviour:
   MotherShipTriggerEvent:
     m_PersistentCalls:
       m_Calls: []
-  HitEvent:
+  PointEvent:
     m_PersistentCalls:
       m_Calls: []
   PlayerHitEvent:
@@ -429,7 +339,7 @@ GameObject:
   - component: {fileID: 243610219924407327}
   - component: {fileID: 8733037825095525488}
   m_Layer: 0
-  m_Name: Border (1)
+  m_Name: RightBorder
   m_TagString: Obsticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -480,7 +390,7 @@ MonoBehaviour:
   MotherShipTriggerEvent:
     m_PersistentCalls:
       m_Calls: []
-  HitEvent:
+  PointEvent:
     m_PersistentCalls:
       m_Calls: []
   PlayerHitEvent:

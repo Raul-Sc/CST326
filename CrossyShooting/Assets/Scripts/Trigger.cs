@@ -28,6 +28,7 @@ public class Trigger : MonoBehaviour
             if (this.name == "BackBorder")
                 other.transform.GetComponent<Player>().canMoveBack = false;
         }
+      
         //spawn enemies, and destroy spawner
         if (this.CompareTag("MotherShipTrigger"))
         {

@@ -10,8 +10,8 @@ public class Enemy : MonoBehaviour
     Gun gun;
     bool canShoot = true;
     Health myHealth;
-    float speed = 3f;
-   
+    float speed = 6f;
+    
 
 
     public int type = 1;
@@ -56,10 +56,12 @@ public class Enemy : MonoBehaviour
     public int TakeDamage()
     {
         soundFx.PlaySound("hit");
+       
         myHealth.life -= 34;
         if (myHealth.life <= 0)
         {
             DeathEvent.Invoke();
+            
             Destroy(gameObject);
             return 1;
         }

@@ -9,7 +9,7 @@ public class Game : MonoBehaviour
     Canvas gui;
     World world;
     Player player;
-    Text rounds, score;
+    Text rounds, score, gameOver;
     void Awake()
     {
         player = GetComponentInChildren<Player>();
@@ -17,6 +17,7 @@ public class Game : MonoBehaviour
         gui = GetComponentInChildren<Canvas>();
         rounds = gui.transform.Find("Rounds").GetComponent<Text>();
         score = gui.transform.Find("Score").GetComponent<Text>();
+        gameOver = gui.transform.Find("GameOver").GetComponent<Text>();
     }
     private void FixedUpdate()
     {
@@ -25,6 +26,7 @@ public class Game : MonoBehaviour
     }
     public void  Restart()
     {
+        gameOver.enabled = true;
         StartCoroutine(LoadIntro());
     }
     IEnumerator LoadIntro()

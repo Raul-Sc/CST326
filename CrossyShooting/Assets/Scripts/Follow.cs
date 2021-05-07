@@ -6,7 +6,7 @@ public class Follow : MonoBehaviour
 {
     Transform target;
 
-    float smoothSpeed = 5f;
+    float smoothSpeed = 10f;
     public Vector3 offset = new Vector3(1, 30, -1);
     private void Awake()
     {

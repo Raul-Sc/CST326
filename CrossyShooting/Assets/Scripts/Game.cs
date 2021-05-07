@@ -9,7 +9,7 @@ public class Game : MonoBehaviour
     Canvas gui;
     World world;
     Player player;
-    Text rounds, score, gameOver;
+    Text rounds, score, gameOver,controls;
     void Awake()
     {
         player = GetComponentInChildren<Player>();
@@ -18,7 +18,9 @@ public class Game : MonoBehaviour
         rounds = gui.transform.Find("Rounds").GetComponent<Text>();
         score = gui.transform.Find("Score").GetComponent<Text>();
         gameOver = gui.transform.Find("GameOver").GetComponent<Text>();
+        controls = gui.transform.Find("Controls").GetComponent<Text>();
     }
+   
     private void FixedUpdate()
     {
         rounds.text = player.GetComponentInChildren<Gun>().magSize.ToString() + " / - ";
@@ -35,5 +37,27 @@ public class Game : MonoBehaviour
         SceneManager.LoadScene("Intro");
 
     }
-    
+    private void Update()
+    {
+        if (Input.anyKey)
+        {
+            if (controls.enabled)
+                StartCoroutine(TakeOffCntrlText());
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+            StartCoroutine(QuitApp());
+    }
+    IEnumerator QuitApp()
+    {
+        gameOver.text = "GOODBYE";
+        gameOver.enabled = true;
+        yield return new WaitForSeconds(5f);
+        gameOver.enabled = false;
+        Application.Quit();
+    }
+    IEnumerator TakeOffCntrlText()
+    {
+        yield return new WaitForSeconds(.5f);
+        controls.enabled = false;
+    }
 }

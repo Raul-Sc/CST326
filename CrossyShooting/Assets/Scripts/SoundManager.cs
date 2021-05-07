@@ -5,10 +5,10 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static AudioClip ruffle,playerMove, enemyMove, gunShot, gunReload,gunEmpty,hit;
-    GameObject player;
+    GameObject source;
     private void Awake()
     {
-        player = transform.gameObject;
+        source = transform.gameObject;
         ruffle = Resources.Load<AudioClip>("ruffle");
         playerMove = Resources.Load<AudioClip>("playerMove");
         enemyMove = Resources.Load<AudioClip>("EnemyMove");
@@ -21,25 +21,21 @@ public class SoundManager : MonoBehaviour
     public void PlaySound(string sound)
     {
         if(sound == "ruffle")
-            AudioSource.PlayClipAtPoint(ruffle, player.transform.position, .1f);
+            AudioSource.PlayClipAtPoint(ruffle, source.transform.position, 1f);
         if (sound ==  "jump")
         { 
-          if(player.CompareTag("Player"))
-            AudioSource.PlayClipAtPoint(playerMove, player.transform.position,.1f);
-           if(player.CompareTag("Enemy"))
-            AudioSource.PlayClipAtPoint(enemyMove, player.transform.position, .2f);
-            else
-            {
-               AudioSource.PlayClipAtPoint(playerMove, Camera.main.transform.position, .2f);
-            }
+          if(source.CompareTag("Player"))
+            AudioSource.PlayClipAtPoint(playerMove, source.transform.position, .6f);
+           if(source.CompareTag("Enemy"))
+            AudioSource.PlayClipAtPoint(enemyMove, source.transform.position, 1f);
         }
         if(sound == "shot")
-            AudioSource.PlayClipAtPoint(gunShot,player.transform.position, .3f);
+            AudioSource.PlayClipAtPoint(gunShot,source.transform.position, .7f);
         if (sound == "reload")
-            AudioSource.PlayClipAtPoint(gunReload, player.transform.position, .5f);
+            AudioSource.PlayClipAtPoint(gunReload, source.transform.position, 1f);
         if(sound == "empty")
-            AudioSource.PlayClipAtPoint(gunEmpty, player.transform.position, .5f);
+            AudioSource.PlayClipAtPoint(gunEmpty, source.transform.position, 1f);
         if(sound == "hit")
-            AudioSource.PlayClipAtPoint(hit, player.transform.position, .5f);
+            AudioSource.PlayClipAtPoint(hit, source.transform.position, 1f);
     }
 }

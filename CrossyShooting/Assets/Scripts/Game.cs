@@ -51,7 +51,7 @@ public class Game : MonoBehaviour
     {
         gameOver.text = "GOODBYE";
         gameOver.enabled = true;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         gameOver.enabled = false;
         Application.Quit();
     }
